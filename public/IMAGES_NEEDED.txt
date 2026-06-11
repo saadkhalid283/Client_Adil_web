@@ -1,0 +1,15 @@
+IMAGES NEEDED — add these files to /public before deploying:
+
+1. /public/og-image.jpg        — Open Graph image, 1200x630px
+   Suggested content: brand name, tagline, phone number on a teal/slate gradient
+
+2. /public/favicon.ico         — Multi-size ICO (16, 32, 48, 64px)
+   Suggested: Snowflake icon on #0f172a (slate) background
+
+3. /public/apple-icon.png      — 180x180px PNG for iOS home screen
+4. /public/icon-192.png        — 192x192px PNG for Android PWA
+5. /public/icon-512.png        — 512x512px PNG for Android PWA splash
+
+NOTE: The gallery slides use CSS gradient + SVG illustrations (no photos needed).
+If you want real photos, add them to galleryData in lib/data.ts and update
+Gallery.tsx to render <img> tags instead of the illustration components.
