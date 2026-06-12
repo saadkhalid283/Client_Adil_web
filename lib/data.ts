@@ -4,7 +4,6 @@ import {
   Fan,
   WashingMachine,
   Refrigerator,
-  Flame,
   Wrench,
   ShieldCheck,
   Zap,
@@ -58,15 +57,6 @@ export const servicesData = (L: Lang) => [
     dEn: "Refrigerator repair — cooling faults, leaks and compressor issues",
     msg: L === "ar" ? "السلام عليكم، أريد إصلاح ثلاجة" : "Hello, I need a refrigerator repair",
     color: "#8b5cf6",
-  },
-  {
-    icon: Flame,
-    ar: "بوتغازات",
-    en: "Gas Stoves",
-    dAr: "إصلاح وصيانة جميع أنواع البوتغازات والطباخات المنزلية",
-    dEn: "Repair and maintenance for all types of gas stoves and cookers",
-    msg: L === "ar" ? "السلام عليكم، أريد إصلاح بوتغاز" : "Hello, I need a gas stove repair",
-    color: "#ef4444",
   },
 ];
 
@@ -155,8 +145,8 @@ export const reviewsData = [
     initials: "سز",
     stars: 4,
     guide: true,
-    ar: "صيانة ممتازة للبوتجاز. الفني واضح ومباشر، حدد السعر قبل الشغل وما زاد ريال.",
-    en: "Excellent gas stove service. The technician was clear and direct — quoted the price upfront and charged not a riyal more.",
+    ar: "صيانة ممتازة للتكييف المركزي. الفني واضح ومباشر، حدد السعر قبل الشغل وما زاد ريال.",
+    en: "Excellent central AC service. The technician was clear and direct — quoted the price upfront and charged not a riyal more.",
   },
   {
     name: "ريم القحطاني",
@@ -189,10 +179,10 @@ export const galleryData: GallerySlide[] = [
   {
     gradient: "linear-gradient(135deg, #7c3aed 0%, #1a1830 100%)",
     accentColor: "#c4b5fd",
-    ar: "ثلاجات وبوتغازات",
-    en: "Fridges & Gas Stoves",
-    descAr: "إصلاح مشاكل التبريد والكمبروسر، وصيانة البوتغازات المنزلية",
-    descEn: "Cooling and compressor faults, and domestic gas stove maintenance",
+    ar: "ثلاجات وأجهزة منزلية",
+    en: "Fridges & Home Appliances",
+    descAr: "إصلاح مشاكل التبريد والكمبروسر والتسريب في الثلاجات بجميع أنواعها",
+    descEn: "Cooling, compressor and leak faults for all types of refrigerators",
   },
   {
     gradient: "linear-gradient(135deg, #f5603d 0%, #1a1830 100%)",

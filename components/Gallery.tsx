@@ -45,32 +45,29 @@ function AcIllustration({ color }: { color: string }) {
   );
 }
 
-/* Fridge + gas stove illustration for slide 2 */
+/* Refrigerator illustration for slide 2 */
 function FridgeIllustration({ color }: { color: string }) {
   return (
     <svg viewBox="0 0 240 160" fill="none" width="240" height="160">
-      {/* Fridge */}
-      <rect x="20" y="10" width="80" height="140" rx="12" fill="rgba(255,255,255,0.08)" stroke={color} strokeWidth="1.5" />
-      <line x1="20" y1="60" x2="100" y2="60" stroke={color} strokeWidth="1.2" />
-      <rect x="32" y="32" width="14" height="18" rx="4" fill={color} opacity="0.7" />
-      <rect x="32" y="72" width="14" height="18" rx="4" fill={color} opacity="0.5" />
+      {/* Fridge body */}
+      <rect x="78" y="10" width="84" height="140" rx="14" fill="rgba(255,255,255,0.08)" stroke={color} strokeWidth="1.5" />
+      {/* Door split */}
+      <line x1="78" y1="62" x2="162" y2="62" stroke={color} strokeWidth="1.2" />
+      {/* Handles */}
+      <rect x="90" y="30" width="6" height="22" rx="3" fill={color} opacity="0.75" />
+      <rect x="90" y="76" width="6" height="22" rx="3" fill={color} opacity="0.55" />
       {/* Frost lines */}
-      {[80, 90, 100].map((y, i) => (
-        <line key={i} x1="30" y1={y} x2="90" y2={y} stroke="rgba(255,255,255,0.18)" strokeWidth="1" />
+      {[88, 98, 108].map((y, i) => (
+        <line key={i} x1="108" y1={y} x2="150" y2={y} stroke="rgba(255,255,255,0.18)" strokeWidth="1" />
       ))}
-      {/* Gas stove */}
-      <rect x="130" y="30" width="92" height="110" rx="12" fill="rgba(255,255,255,0.08)" stroke={color} strokeWidth="1.5" />
-      {/* Burners */}
-      {[[158, 65],[202, 65],[158, 108],[202, 108]].map(([cx, cy], i) => (
-        <g key={i}>
-          <circle cx={cx} cy={cy} r="16" fill="rgba(255,255,255,0.06)" stroke={color} strokeWidth="1.2" />
-          <circle cx={cx} cy={cy} r="7" fill={color} opacity="0.45" />
-          <circle cx={cx} cy={cy} r="3" fill={color} opacity="0.8" />
+      {/* Cold air snowflakes */}
+      {[[44, 50], [196, 70], [40, 110]].map(([cx, cy], i) => (
+        <g key={i} stroke={color} strokeWidth="1.5" strokeLinecap="round" opacity={0.6 - i * 0.12}>
+          <line x1={cx - 7} y1={cy} x2={cx + 7} y2={cy} />
+          <line x1={cx} y1={cy - 7} x2={cx} y2={cy + 7} />
+          <line x1={cx - 5} y1={cy - 5} x2={cx + 5} y2={cy + 5} />
+          <line x1={cx - 5} y1={cy + 5} x2={cx + 5} y2={cy - 5} />
         </g>
-      ))}
-      {/* Knobs */}
-      {[148, 166, 184, 202].map((x, i) => (
-        <rect key={i} x={x} y="37" width="8" height="12" rx="4" fill={color} opacity="0.65" />
       ))}
     </svg>
   );

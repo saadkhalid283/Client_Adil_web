@@ -19,7 +19,7 @@ export const translations: Record<Lang, Translations> = {
     heroTitle2: "نحلّها لك",
     heroTitle3: "بضمان.",
     heroSub:
-      "إصلاح مكيفات وثلاجات وغسالات وبوتغازات وتمديد مواسير في أبحر الجنوبية وحي البساتين. خدمة سريعة، أسعار شفافة، وضمان على كل إصلاح.",
+      "إصلاح مكيفات وثلاجات وغسالات وتمديد مواسير في أبحر الجنوبية وحي البساتين. خدمة سريعة، أسعار شفافة، وضمان على كل إصلاح.",
     heroWa: "واتساب الآن",
     heroCall: "اتصل بعادل",
     heroMsg: "السلام عليكم، أريد الاستفسار عن خدمات الإصلاح",
@@ -60,7 +60,7 @@ export const translations: Record<Lang, Translations> = {
     waCardSub: "أسرع وسيلة للرد والجدولة",
     floatMsg: "السلام عليكم، أريد الاستفسار عن خدمات الإصلاح",
     footerTag:
-      "إصلاح المكيفات والثلاجات والغسالات والبوتغازات في جدة. خدمة موثوقة وأسعار شفافة.",
+      "إصلاح المكيفات والثلاجات والغسالات في جدة. خدمة موثوقة وأسعار شفافة.",
     quickLinks: "روابط سريعة",
     footerContact: "معلومات التواصل",
     rights: "جميع الحقوق محفوظة",
@@ -84,7 +84,7 @@ export const translations: Record<Lang, Translations> = {
     heroTitle2: "We fix it",
     heroTitle3: "guaranteed.",
     heroSub:
-      "AC, fridge, washing machine, gas stove repair and pipe installation in Abhar Al-Janubiyah & Al-Basatin. Fast service, transparent pricing, full repair guarantee.",
+      "AC, fridge, washing machine repair and pipe installation in Abhar Al-Janubiyah & Al-Basatin. Fast service, transparent pricing, full repair guarantee.",
     heroWa: "WhatsApp Now",
     heroCall: "Call Adel",
     heroMsg: "Hello, I'd like to inquire about your repair services",
@@ -125,7 +125,7 @@ export const translations: Record<Lang, Translations> = {
     waCardSub: "Fastest way to schedule a visit",
     floatMsg: "Hello, I'd like to inquire about your repair services",
     footerTag:
-      "AC, fridge, washing machine and gas stove repair in Jeddah. Reliable service, transparent pricing.",
+      "AC, fridge and washing machine repair in Jeddah. Reliable service, transparent pricing.",
     quickLinks: "Quick Links",
     footerContact: "Contact Info",
     rights: "All rights reserved",

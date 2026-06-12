@@ -1,10 +1,10 @@
 "use client";
 
-import { Phone, MapPin, Clock, MessageCircle } from "lucide-react";
+import { Phone, MapPin, Clock, MessageCircle, Navigation } from "lucide-react";
 import type { SiteProps } from "@/lib/site-props";
-import { wa, PHONE_PRIMARY, MAP_SRC } from "@/lib/constants";
+import { wa, PHONE_PRIMARY, MAP_SRC, DIRECTIONS_LINK } from "@/lib/constants";
 
-export function ContactSection({ L }: SiteProps) {
+export function ContactSection({ L, isAr }: SiteProps) {
   return (
     <section id="contact" className="section-wrap">
       <div className="section-inner">
@@ -94,15 +94,27 @@ export function ContactSection({ L }: SiteProps) {
             </a>
           </div>
 
-          {/* Right: Map */}
-          <div className="map-wrap" data-reveal>
-            <iframe
-              src={MAP_SRC}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="موقع عادل للتبريد والتكييف"
-            />
+          {/* Right: Map + directions */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "14px" }} data-reveal>
+            <div className="map-wrap">
+              <iframe
+                src={MAP_SRC}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="موقع عادل للتبريد والتكييف"
+              />
+            </div>
+            <a
+              href={DIRECTIONS_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-call"
+              style={{ justifyContent: "center" }}
+            >
+              <Navigation size={18} />
+              {isAr ? "احصل على الاتجاهات" : "Get Directions"}
+            </a>
           </div>
         </div>
       </div>
