@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./globals.css";
+
+const GOOGLE_TAG_ID = "AW-18206895895";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://adel-cooling.vercel.app";
@@ -150,7 +153,35 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {/* Google tag (gtag.js) — GA4 / Google Ads, global on every page */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GOOGLE_TAG_ID}');
+
+            function gtag_report_conversion(url) {
+              var callback = function () {
+                if (typeof(url) != 'undefined') {
+                  window.location = url;
+                }
+              };
+              gtag('event', 'conversion', {
+                'send_to': '${GOOGLE_TAG_ID}/EFQ-CI6kisUcEJfe3OlD',
+                'event_callback': callback
+              });
+              return false;
+            }
+          `}
+        </Script>
+        {children}
+      </body>
     </html>
   );
 }
