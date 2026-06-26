@@ -72,7 +72,7 @@ export function ContactSection({ L, isAr }: SiteProps) {
             </div>
 
             {/* WhatsApp CTA card */}
-            <a className="wa-contact-btn" href={wa(L.floatMsg)}>
+            <a className="wa-contact-btn" href={wa(L.floatMsg)} onClick={(e) => { e.preventDefault(); window.trackWhatsappConversion?.(e.currentTarget.href); }}>
               <div
                 style={{
                   width: 46,

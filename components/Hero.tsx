@@ -45,11 +45,11 @@ export function Hero({ L }: { L: Translations }) {
             <p className="hero-sub">{L.heroSub}</p>
 
             <div className="hero-actions">
-              <a href={`tel:${PHONE_PRIMARY}`} className="btn-call">
+              <a href={`tel:${PHONE_PRIMARY}`} className="btn-call" onClick={(e) => { e.preventDefault(); window.trackPhoneConversion?.(e.currentTarget.href); }}>
                 <Phone size={18} />
                 {L.heroCall}
               </a>
-              <a href={wa(L.heroMsg)} className="btn-wa">
+              <a href={wa(L.heroMsg)} className="btn-wa" onClick={(e) => { e.preventDefault(); window.trackWhatsappConversion?.(e.currentTarget.href); }}>
                 <MessageCircle size={18} />
                 {L.heroWa}
               </a>

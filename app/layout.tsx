@@ -3,9 +3,10 @@ import Script from "next/script";
 import "./globals.css";
 
 const GOOGLE_TAG_ID = "AW-18206895895";
+const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID || "";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://adel-cooling.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://adelcooling.com";
 
 const TITLE_AR = "عادل للتبريد والتكييف | إصلاح مكيفات وثلاجات وغسالات في جدة";
 const DESC_AR =
@@ -165,19 +166,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${GOOGLE_TAG_ID}');
+            ${GA4_ID ? `gtag('config', '${GA4_ID}');` : ""}
 
-            function gtag_report_conversion(url) {
-              var callback = function () {
-                if (typeof(url) != 'undefined') {
-                  window.location = url;
-                }
-              };
+            window.trackPhoneConversion = function(url) {
+              var callback = function() { if (url) window.location.href = url; };
               gtag('event', 'conversion', {
-                'send_to': '${GOOGLE_TAG_ID}/EFQ-CI6kisUcEJfe3OlD',
+                'send_to': 'AW-18206895895/7m-PCO7ZisYcEJfe3OlD',
                 'event_callback': callback
               });
-              return false;
-            }
+              setTimeout(callback, 1000);
+            };
+
+            window.trackWhatsappConversion = function(url) {
+              var callback = function() { if (url) window.location.href = url; };
+              gtag('event', 'conversion', {
+                'send_to': 'AW-18206895895/vK8_COvZisYcEJfe3OlD',
+                'event_callback': callback
+              });
+              setTimeout(callback, 1000);
+            };
           `}
         </Script>
         {children}

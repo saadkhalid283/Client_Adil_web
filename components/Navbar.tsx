@@ -38,7 +38,7 @@ export function Navbar({ L, scrolled, active, onLangToggle, go }: NavbarProps) {
               {L.hours}
             </span>
             <span className="topbar__dot" />
-            <a className="topbar__item" href={`tel:${PHONE_PRIMARY}`}>
+            <a className="topbar__item" href={`tel:${PHONE_PRIMARY}`} onClick={(e) => { e.preventDefault(); window.trackPhoneConversion?.(e.currentTarget.href); }}>
               <Phone size={13} color="var(--orange-2)" />
               {PHONE_PRIMARY}
             </a>
@@ -91,6 +91,7 @@ export function Navbar({ L, scrolled, active, onLangToggle, go }: NavbarProps) {
               className="btn-call navbar__call-btn"
               style={{ padding: "10px 18px", fontSize: "13px" }}
               data-desktop
+              onClick={(e) => { e.preventDefault(); window.trackPhoneConversion?.(e.currentTarget.href); }}
             >
               <Phone size={14} />
               {L.callBtn}

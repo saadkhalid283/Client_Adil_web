@@ -12,6 +12,7 @@ export function FloatingWhatsApp({ L }: { L: Translations }) {
       data-desktop
       aria-label="WhatsApp"
       title={L.waBtn}
+      onClick={(e) => { e.preventDefault(); window.trackWhatsappConversion?.(e.currentTarget.href); }}
     >
       <MessageCircle size={28} />
     </a>

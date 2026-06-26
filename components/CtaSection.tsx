@@ -12,11 +12,11 @@ export function CtaSection({ L }: { L: Translations }) {
         <h2 className="cta-section__title">{L.ctaTitle}</h2>
         <p className="cta-section__sub">{L.ctaSub}</p>
         <div className="cta-section__actions">
-          <a href={wa(L.floatMsg)} className="btn-wa">
+          <a href={wa(L.floatMsg)} className="btn-wa" onClick={(e) => { e.preventDefault(); window.trackWhatsappConversion?.(e.currentTarget.href); }}>
             <MessageCircle size={18} />
             {L.ctaWa}
           </a>
-          <a href={`tel:${PHONE_PRIMARY}`} className="btn-outline-light">
+          <a href={`tel:${PHONE_PRIMARY}`} className="btn-outline-light" onClick={(e) => { e.preventDefault(); window.trackPhoneConversion?.(e.currentTarget.href); }}>
             <Phone size={18} />
             {L.ctaCall}
           </a>

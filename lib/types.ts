@@ -1,5 +1,12 @@
 export type Lang = "ar" | "en";
 
+declare global {
+  interface Window {
+    trackPhoneConversion?: (url: string) => void;
+    trackWhatsappConversion?: (url: string) => void;
+  }
+}
+
 export interface NavStrings {
   home: string;
   services: string;

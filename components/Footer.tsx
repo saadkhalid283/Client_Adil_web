@@ -64,7 +64,7 @@ export function Footer({ L, isAr, go }: SiteProps) {
           <div className="footer-heading">{L.footerContact}</div>
           <div className="footer-contact-item">
             <Phone size={14} color="var(--teal-2)" style={{ flexShrink: 0, marginTop: 2 }} />
-            <a href={`tel:${PHONE_PRIMARY}`}>{PHONE_PRIMARY}</a>
+            <a href={`tel:${PHONE_PRIMARY}`} onClick={(e) => { e.preventDefault(); window.trackPhoneConversion?.(e.currentTarget.href); }}>{PHONE_PRIMARY}</a>
           </div>
           <div className="footer-contact-item">
             <MapPin size={14} color="var(--teal-2)" style={{ flexShrink: 0, marginTop: 2 }} />

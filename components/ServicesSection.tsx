@@ -54,7 +54,7 @@ export function ServicesSection({ L, isAr }: SiteProps) {
                 </div>
                 <h3 className="svc-title">{title}</h3>
                 <p className="svc-desc">{desc}</p>
-                <a href={wa(svc.msg)} className="svc-cta">
+                <a href={wa(svc.msg)} className="svc-cta" onClick={(e) => { e.preventDefault(); window.trackWhatsappConversion?.(e.currentTarget.href); }}>
                   <MessageCircle size={14} />
                   {L.requestBtn}
                   <span style={{ fontSize: "16px" }}>{isAr ? "←" : "→"}</span>
