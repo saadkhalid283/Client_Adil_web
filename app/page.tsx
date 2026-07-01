@@ -88,14 +88,16 @@ export default function Home() {
         onLangToggle={() => setLang(isAr ? "en" : "ar")}
         go={go}
       />
-      <Hero L={L} />
-      <ServicesSection {...siteProps} />
-      <WhySection {...siteProps} />
-      <HowItWorksSection L={L} />
-      <Gallery {...siteProps} />
-      <ReviewsSection {...siteProps} />
-      <ContactSection {...siteProps} />
-      <CtaSection L={L} />
+      <main>
+        <Hero L={L} />
+        <ServicesSection {...siteProps} />
+        <WhySection {...siteProps} />
+        <HowItWorksSection L={L} />
+        <Gallery {...siteProps} />
+        <ReviewsSection {...siteProps} />
+        <ContactSection {...siteProps} />
+        <CtaSection L={L} />
+      </main>
       <Footer {...siteProps} />
       <FloatingWhatsApp L={L} />
       <MobileCtaBar L={L} />

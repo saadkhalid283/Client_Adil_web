@@ -67,14 +67,13 @@ export function Navbar({ L, scrolled, active, onLangToggle, go }: NavbarProps) {
             <ul className="navbar__links" style={{ display: "flex" }}>
               {navItems.map((item) => (
                 <li key={item.id}>
-                  <span
+                  <a
+                    href={`#${item.id}`}
                     className={`navlink${active === item.id ? " navlink--active" : ""}`}
-                    onClick={() => go(item.id)}
-                    role="button"
-                    tabIndex={0}
+                    onClick={(e) => { e.preventDefault(); go(item.id); }}
                   >
                     {item.label}
-                  </span>
+                  </a>
                 </li>
               ))}
             </ul>

@@ -84,8 +84,9 @@ export function Gallery({ L, isAr }: SiteProps) {
                     <img
                       className={`gallery-photo${i === idx ? " gallery-photo--active" : ""}`}
                       src={slide.image}
-                      alt={title}
+                      alt={isAr ? slide.altAr : slide.altEn}
                       loading={i === 0 ? "eager" : "lazy"}
+                      decoding="async"
                       draggable={false}
                     />
 

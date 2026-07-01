@@ -46,14 +46,13 @@ export function Footer({ L, isAr, go }: SiteProps) {
           <ul className="footer-links">
             {navItems.map((item) => (
               <li key={item.id}>
-                <span
+                <a
+                  href={`#${item.id}`}
                   className="footer-link"
-                  onClick={() => go(item.id)}
-                  role="button"
-                  tabIndex={0}
+                  onClick={(e) => { e.preventDefault(); go(item.id); }}
                 >
                   {item.label}
-                </span>
+                </a>
               </li>
             ))}
           </ul>

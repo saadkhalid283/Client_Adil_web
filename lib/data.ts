@@ -166,6 +166,8 @@ export interface GallerySlide {
   en: string;
   descAr: string;
   descEn: string;
+  altAr: string;
+  altEn: string;
 }
 
 export const galleryData: GallerySlide[] = [
@@ -177,6 +179,8 @@ export const galleryData: GallerySlide[] = [
     en: "AC Repair & Maintenance",
     descAr: "مكيفات شباك وسبليت وتكييف مركزي — تشخيص دقيق وإصلاح سريع مع ضمان",
     descEn: "Window, split & central AC — accurate diagnosis, fast repair with guarantee",
+    altAr: "فني تكييف يفحص ضغط الفريون بعدادات القياس في وحدة مكيف خارجية على سطح منزل في جدة",
+    altEn: "AC technician checking refrigerant pressure with gauges on an outdoor condenser unit on a rooftop in Jeddah",
   },
   {
     gradient: "linear-gradient(135deg, #6366f1 0%, #1a1830 100%)",
@@ -186,6 +190,8 @@ export const galleryData: GallerySlide[] = [
     en: "Split AC Service & Cleaning",
     descAr: "تنظيف الفلاتر وصيانة الوحدات الداخلية في موقعك بدقة واحترافية",
     descEn: "Filter cleaning and indoor-unit maintenance at your home, done with care",
+    altAr: "فني يجري صيانة وتنظيف وحدة مكيف سبليت داخلية في غرفة معيشة بمنزل عميل في جدة",
+    altEn: "Technician servicing and cleaning an indoor split AC unit in a customer's living room in Jeddah",
   },
   {
     gradient: "linear-gradient(135deg, #7c3aed 0%, #1a1830 100%)",
@@ -195,6 +201,8 @@ export const galleryData: GallerySlide[] = [
     en: "Fridges & Home Appliances",
     descAr: "إصلاح مشاكل التبريد والكمبروسر والتسريب في الثلاجات بجميع أنواعها",
     descEn: "Cooling, compressor and leak faults for all types of refrigerators",
+    altAr: "فني يصلح ضاغط ثلاجة في مطبخ منزل بجدة باستخدام عدة متخصصة",
+    altEn: "Technician repairing a refrigerator compressor in a Jeddah home kitchen with specialist tools",
   },
   {
     gradient: "linear-gradient(135deg, #f5603d 0%, #1a1830 100%)",
@@ -204,5 +212,7 @@ export const galleryData: GallerySlide[] = [
     en: "Washing Machines & Pipes",
     descAr: "إصلاح الغسالات الأتوماتيك وتمديد مواسير الأجهزة الكهربائية باحتراف",
     descEn: "Automatic washing machine repair and professional electrical pipe installation",
+    altAr: "فني يصلح غسالة أتوماتيك أمامية التحميل داخل منزل عميل في جدة",
+    altEn: "Technician repairing an automatic front-load washing machine inside a customer's home in Jeddah",
   },
 ];

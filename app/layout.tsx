@@ -91,53 +91,114 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+/* Services offered — mirrors the visible Services section content */
+const SERVICES_LD = [
+  { ar: "إصلاح مكيفات شباك", en: "Window AC Repair" },
+  { ar: "إصلاح مكيفات سبليت", en: "Split AC Repair" },
+  { ar: "صيانة تكييف مركزي", en: "Central AC Maintenance" },
+  { ar: "إصلاح غسالات أتوماتيك", en: "Automatic Washing Machine Repair" },
+  { ar: "إصلاح ثلاجات", en: "Refrigerator Repair" },
+  { ar: "تمديد مواسير أجهزة كهربائية", en: "Electrical Appliance Pipe Installation" },
+];
+
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "HVACBusiness",
-  "@id": `${SITE_URL}/#business`,
-  name: "عادل للتبريد والتكييف",
-  alternateName: "Adel Cooling & AC",
-  description: DESC_AR,
-  url: SITE_URL,
-  telephone: "+966598440397",
-  priceRange: "$$",
-  currenciesAccepted: "SAR",
-  paymentAccepted: "Cash, Mada",
-  knowsLanguage: ["ar", "en"],
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Jeddah",
-    addressRegion: "Makkah Province",
-    addressCountry: "SA",
-    description: "أبحر الجنوبية وحي البساتين",
-  },
-  geo: { "@type": "GeoCoordinates", latitude: 21.6893272, longitude: 39.1125107 },
-  areaServed: [
-    { "@type": "City", name: "Jeddah" },
-    { "@type": "Place", name: "أبحر الجنوبية" },
-    { "@type": "Place", name: "حي البساتين" },
-  ],
-  openingHoursSpecification: [
+  "@graph": [
     {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday"],
-      opens: "08:00",
-      closes: "00:00",
+      "@type": "HVACBusiness",
+      "@id": `${SITE_URL}/#business`,
+      name: "عادل للتبريد والتكييف",
+      alternateName: "Adel Cooling & AC",
+      description: DESC_AR,
+      url: SITE_URL,
+      telephone: "+966598440397",
+      image: `${SITE_URL}/og-image.jpg`,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/icon-512.png`,
+        width: 512,
+        height: 512,
+      },
+      priceRange: "$$",
+      currenciesAccepted: "SAR",
+      paymentAccepted: "Cash, Mada",
+      knowsLanguage: ["ar", "en"],
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Jeddah",
+        addressRegion: "Makkah Province",
+        addressCountry: "SA",
+        description: "أبحر الجنوبية وحي البساتين",
+      },
+      geo: { "@type": "GeoCoordinates", latitude: 21.6893272, longitude: 39.1125107 },
+      hasMap: "https://www.google.com/maps/search/?api=1&query=21.68932718013044,39.112510675275004",
+      areaServed: [
+        { "@type": "City", name: "Jeddah" },
+        { "@type": "Place", name: "أبحر الجنوبية" },
+        { "@type": "Place", name: "حي البساتين" },
+      ],
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday"],
+          opens: "08:00",
+          closes: "23:59",
+        },
+      ],
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+966598440397",
+        contactType: "customer service",
+        areaServed: "SA",
+        availableLanguage: ["ar", "en"],
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.8",
+        bestRating: "5",
+        ratingCount: "18",
+      },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "خدمات الإصلاح والصيانة",
+        itemListElement: SERVICES_LD.map((s) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: s.ar,
+            alternateName: s.en,
+            provider: { "@id": `${SITE_URL}/#business` },
+            areaServed: { "@type": "City", name: "Jeddah" },
+          },
+        })),
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: "عادل للتبريد والتكييف",
+      alternateName: "Adel Cooling & AC",
+      inLanguage: ["ar", "en"],
+      publisher: { "@id": `${SITE_URL}/#business` },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/#webpage`,
+      url: SITE_URL,
+      name: TITLE_AR,
+      description: DESC_AR,
+      inLanguage: "ar",
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      about: { "@id": `${SITE_URL}/#business` },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+      },
     },
   ],
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+966598440397",
-    contactType: "customer service",
-    areaServed: "SA",
-    availableLanguage: ["ar", "en"],
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.8",
-    bestRating: "5",
-    ratingCount: "18",
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

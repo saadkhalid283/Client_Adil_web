@@ -75,6 +75,7 @@ export function Hero({ L }: { L: Translations }) {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 style={{ width: "100%", maxWidth: "340px" }}
+                aria-hidden="true"
               >
                 {/* Soft backdrop circle */}
                 <circle cx="180" cy="120" r="120" fill="#eef0ff" />
