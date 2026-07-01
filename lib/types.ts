@@ -28,6 +28,7 @@ export interface Translations {
   waBtn: string;
   callBtn: string;
   heroEyebrow: string;
+  verifiedBadge: string;
   heroTitle1: string;
   heroTitle2: string;
   heroTitle3: string;

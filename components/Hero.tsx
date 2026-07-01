@@ -1,6 +1,6 @@
 "use client";
 
-import { MessageCircle, Phone, Zap } from "lucide-react";
+import { BadgeCheck, MessageCircle, Phone, Zap } from "lucide-react";
 import type { Translations } from "@/lib/types";
 import { wa, PHONE_PRIMARY } from "@/lib/constants";
 
@@ -30,9 +30,15 @@ export function Hero({ L }: { L: Translations }) {
         <div className="hero-grid" style={{ display: "grid" }}>
           {/* Text content */}
           <div className="rise">
-            <div className="hero-eyebrow-wrap">
-              <span className="hero-eyebrow-dot" />
-              <span className="hero-eyebrow-text">{L.heroEyebrow}</span>
+            <div className="hero-eyebrow-row">
+              <div className="hero-eyebrow-wrap">
+                <span className="hero-eyebrow-dot" />
+                <span className="hero-eyebrow-text">{L.heroEyebrow}</span>
+              </div>
+              <span className="verified-badge">
+                <BadgeCheck size={15} />
+                {L.verifiedBadge}
+              </span>
             </div>
 
             <h1 className="hero-h1">
