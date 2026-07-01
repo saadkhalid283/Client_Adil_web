@@ -8,6 +8,7 @@ ALL IMAGES DONE — every asset below exists in /public:
 
 Snowflake mark matches brand colors in app/site.css.
 
-NOTE: The gallery slides use CSS gradient + SVG illustrations (no photos needed).
-If you want real photos, add them to galleryData in lib/data.ts and update
-Gallery.tsx to render <img> tags instead of the illustration components.
+NOTE: The gallery now uses real work photos from /public/gallery (4 slides:
+AC outdoor repair, split AC service, fridge repair, washing machine repair).
+To swap a photo, replace the file in /public/gallery or edit galleryData
+in lib/data.ts.

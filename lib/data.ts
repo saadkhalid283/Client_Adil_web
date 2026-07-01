@@ -161,6 +161,7 @@ export const reviewsData = [
 export interface GallerySlide {
   gradient: string;
   accentColor: string;
+  image: string;
   ar: string;
   en: string;
   descAr: string;
@@ -171,14 +172,25 @@ export const galleryData: GallerySlide[] = [
   {
     gradient: "linear-gradient(135deg, #4f46e5 0%, #1a1830 100%)",
     accentColor: "#a5b4fc",
+    image: "/gallery/ac-outdoor-repair.webp",
     ar: "إصلاح وصيانة المكيفات",
     en: "AC Repair & Maintenance",
     descAr: "مكيفات شباك وسبليت وتكييف مركزي — تشخيص دقيق وإصلاح سريع مع ضمان",
     descEn: "Window, split & central AC — accurate diagnosis, fast repair with guarantee",
   },
   {
+    gradient: "linear-gradient(135deg, #6366f1 0%, #1a1830 100%)",
+    accentColor: "#c7d2fe",
+    image: "/gallery/split-ac-maintenance.webp",
+    ar: "صيانة وتنظيف مكيفات سبليت",
+    en: "Split AC Service & Cleaning",
+    descAr: "تنظيف الفلاتر وصيانة الوحدات الداخلية في موقعك بدقة واحترافية",
+    descEn: "Filter cleaning and indoor-unit maintenance at your home, done with care",
+  },
+  {
     gradient: "linear-gradient(135deg, #7c3aed 0%, #1a1830 100%)",
     accentColor: "#c4b5fd",
+    image: "/gallery/fridge-repair.webp",
     ar: "ثلاجات وأجهزة منزلية",
     en: "Fridges & Home Appliances",
     descAr: "إصلاح مشاكل التبريد والكمبروسر والتسريب في الثلاجات بجميع أنواعها",
@@ -187,6 +199,7 @@ export const galleryData: GallerySlide[] = [
   {
     gradient: "linear-gradient(135deg, #f5603d 0%, #1a1830 100%)",
     accentColor: "#fda99a",
+    image: "/gallery/washing-machine-repair.webp",
     ar: "غسالات وتمديد مواسير",
     en: "Washing Machines & Pipes",
     descAr: "إصلاح الغسالات الأتوماتيك وتمديد مواسير الأجهزة الكهربائية باحتراف",
