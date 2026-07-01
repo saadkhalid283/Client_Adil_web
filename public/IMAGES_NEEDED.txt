@@ -1,14 +1,12 @@
-IMAGES NEEDED — add these files to /public before deploying:
+ALL IMAGES DONE — every asset below exists in /public:
 
-1. /public/og-image.jpg        — Open Graph image, 1200x630px
-   Suggested content: brand name, tagline, phone number on a teal/slate gradient
+- og-image.jpg   (1200x630)  Storefront photo for social share previews.
+- favicon.ico    (16/32/48/64) Indigo gradient + white snowflake mark.
+- apple-icon.png (180x180)   iOS home-screen icon.
+- icon-192.png   (192x192)   Android PWA icon.
+- icon-512.png   (512x512)   Android PWA splash icon.
 
-2. /public/favicon.ico         — Multi-size ICO (16, 32, 48, 64px)
-   Suggested: Snowflake icon on #0f172a (slate) background
-
-3. /public/apple-icon.png      — 180x180px PNG for iOS home screen
-4. /public/icon-192.png        — 192x192px PNG for Android PWA
-5. /public/icon-512.png        — 512x512px PNG for Android PWA splash
+Snowflake mark matches brand colors in app/site.css.
 
 NOTE: The gallery slides use CSS gradient + SVG illustrations (no photos needed).
 If you want real photos, add them to galleryData in lib/data.ts and update

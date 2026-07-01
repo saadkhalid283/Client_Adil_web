@@ -9,14 +9,15 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://adelcooling.com";
 
 const TITLE_AR = "عادل للتبريد والتكييف | إصلاح مكيفات وثلاجات وغسالات في جدة";
+const TITLE_EN = "Adel Cooling & AC | AC, Fridge & Washing Machine Repair in Jeddah";
 const DESC_AR =
   "عادل للتبريد والتكييف في جدة: إصلاح مكيفات (شباك وسبليت ومركزي)، ثلاجات، غسالات أتوماتيك، وتمديد مواسير. خدمة سريعة، أسعار شفافة، وضمان على الإصلاح. أبحر الجنوبية وحي البساتين.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: TITLE_AR,
-    template: "%s | عادل للتبريد والتكييف",
+    default: TITLE_EN,
+    template: "%s | Adel Cooling & AC",
   },
   description: DESC_AR,
   applicationName: "عادل للتبريد والتكييف",
