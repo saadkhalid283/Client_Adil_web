@@ -18,5 +18,22 @@ export const DIRECTIONS_LINK = `https://www.google.com/maps/dir/?api=1&destinati
 
 export const RATING = "4.8";
 
+// Appliance brands commonly found in Saudi homes — shown in the brands
+// marquee and mirrored in the LocalBusiness "knowsAbout" structured data.
+export const BRANDS = [
+  "Samsung",
+  "LG",
+  "Gree",
+  "Midea",
+  "Haier",
+  "Daikin",
+  "Zamil",
+  "Carrier",
+  "Panasonic",
+  "Toshiba",
+  "Sharp",
+  "Hisense",
+];
+
 export const wa = (msg: string) =>
   `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;

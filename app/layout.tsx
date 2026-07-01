@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { BRANDS } from "@/lib/constants";
 import "./globals.css";
 
 const GOOGLE_TAG_ID = "AW-18206895895";
@@ -120,6 +121,7 @@ const jsonLd = {
         height: 512,
       },
       priceRange: "$$",
+      knowsAbout: BRANDS,
       currenciesAccepted: "SAR",
       paymentAccepted: "Cash, Mada",
       knowsLanguage: ["ar", "en"],

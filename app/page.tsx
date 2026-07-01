@@ -6,6 +6,7 @@ import type { Lang } from "@/lib/types";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { ServicesSection } from "@/components/ServicesSection";
+import { BrandsSection } from "@/components/BrandsSection";
 import { WhySection } from "@/components/WhySection";
 import { HowItWorksSection } from "@/components/HowItWorksSection";
 import { Gallery } from "@/components/Gallery";
@@ -91,6 +92,7 @@ export default function Home() {
       <main>
         <Hero L={L} />
         <ServicesSection {...siteProps} />
+        <BrandsSection L={L} />
         <WhySection {...siteProps} />
         <HowItWorksSection L={L} />
         <Gallery {...siteProps} />

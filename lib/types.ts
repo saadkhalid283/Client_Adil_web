@@ -41,6 +41,8 @@ export interface Translations {
   servicesSub: string;
   requestBtn: string;
   moreTitle: string;
+  brandsEyebrow: string;
+  brandsTitle: string;
   whyTitle: string;
   whySub: string;
   howTitle: string;
