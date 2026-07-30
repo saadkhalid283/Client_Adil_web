@@ -50,7 +50,8 @@
       "Bash(lsof -ti:3005)",
       "Bash(xargs kill)",
       "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(cp \"/Users/saadkhalid/Downloads/google6da265c803f2a4e9.html\" \"/Users/saadkhalid/Downloads/Adel_Cooling_Website/public/google6da265c803f2a4e9.html\" && cat \"/Users/saadkhalid/Downloads/Adel_Cooling_Website/public/google6da265c803f2a4e9.html\")"
     ]
   }
 }
