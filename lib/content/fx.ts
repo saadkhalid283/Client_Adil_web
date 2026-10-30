@@ -4,6 +4,6 @@ export interface FxCopy {
 }
 
 export const fxContent: { ar: FxCopy; en: FxCopy } = {
-  ar: { dialCaption: "حرارة جدة 45° إلى راحة 22°" },
-  en: { dialCaption: "Jeddah heat to 22° comfort" },
+  ar: { dialCaption: "راحة في كل موسم" },
+  en: { dialCaption: "Comfort in every season" },
 };
