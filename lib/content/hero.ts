@@ -27,7 +27,7 @@ export const heroContent: { ar: HeroContent; en: HeroContent } = {
     closed: "Closed now · opens at 8:00 am",
     callLabel: "Call now",
     waLabel: "Message on WhatsApp",
-    microcopy: "Tap to call. We take care of your comfort.",
+    microcopy: "Tap to call and we will take care of your comfort.",
     ratingLine: "Google ratings",
     reviewLabel: "Customer review",
     dockWa: "WhatsApp",
