@@ -5,9 +5,9 @@ import { FaqView } from "@/components/views/FaqView";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://adelcooling.com";
 
 export const metadata: Metadata = {
-  title: "AC and Appliance Repair FAQ",
+  title: "AC and appliance repair FAQ",
   description:
-    "إجابات عن أسئلة شائعة حول إصلاح المكيفات والثلاجات والغسالات في جدة: المواعيد، الضمان، تحديد السعر، وماذا تفعل قبل وصول الفني.",
+    "إجابات عن أسئلة شائعة حول إصلاح المكيفات والثلاجات والغسالات في جدة: المواعيد والضمان والاتفاق على السعر قبل بدء العمل، مع إجابات واضحة من عادل.",
   alternates: { canonical: "/faq" },
   openGraph: { url: "/faq" },
 };

@@ -5,9 +5,9 @@ import { OurWorkView } from "@/components/views/OurWorkView";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://adelcooling.com";
 
 export const metadata: Metadata = {
-  title: "Our Work in Jeddah",
+  title: "What we repair in Jeddah",
   description:
-    "شاهد صوراً من إصلاحات حقيقية لمكيفات وثلاجات وغسالات في منازل جدة، وتعرف على طريقة عمل عادل في الصيانة والتشخيص قبل أن تطلب الخدمة.",
+    "تعرّف على ما يصلحه عادل في جدة من مكيفات شباك وسبليت ومركزي وثلاجات وغسالات أتوماتيك، وكيف يتم الاتفاق على السعر قبل البدء.",
   alternates: { canonical: "/our-work" },
   openGraph: { url: "/our-work" },
 };

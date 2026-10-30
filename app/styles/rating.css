@@ -1,0 +1,14 @@
+/* ════ Single rating display: Google logo + number + stars filled to the exact value ════ */
+.rs { position: relative; display: inline-block; line-height: 0; vertical-align: middle; --rs-empty: rgba(140, 140, 165, 0.4); }
+.rs__row { display: flex; gap: 2px; }
+.rs__row svg { width: var(--rs-size); height: var(--rs-size); flex: none; display: block; }
+.rs__row--base svg { fill: var(--rs-empty); }
+.rs__row--fill { position: absolute; top: 0; left: 0; overflow: hidden; }
+.rs__row--fill svg { fill: #fbbc04; }
+.gl { display: inline-block; flex: none; vertical-align: middle; }
+
+.reviews .rating-banner { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 14px; }
+.rating-banner__meta { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.hero-proof__line .gl { margin-inline-end: 2px; }
+.trust-row dd .gl { margin-inline-end: 8px; }
+.trust-row dd .rs { margin-inline-end: 8px; }

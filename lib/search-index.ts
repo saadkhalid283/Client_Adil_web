@@ -44,7 +44,7 @@ const SERVICE_KEYWORDS: Record<ServiceSlug, string> = {
 const PAGE_KEYWORDS: Record<string, string> = {
   "/": "رئيسية بداية home start",
   "/services": "خدمات اصلاح صيانة مكيف ثلاجة غسالة services repair ac fridge washer",
-  "/our-work": "اعمال صور سابقة معرض work photos gallery projects",
+  "/our-work": "اعمال ما نصلحه طريقة العمل خدمات work what we repair how we work services process",
   "/reviews": "تقييم تقييمات اراء عملاء نجوم reviews rating ratings stars testimonials",
   "/about": "من نحن عادل about adel who",
   "/faq": "اسئلة اجوبة سعر ضمان faq questions answers price warranty",

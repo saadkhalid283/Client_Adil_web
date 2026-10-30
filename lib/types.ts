@@ -52,9 +52,6 @@ export interface Translations {
   reviewsTitle: string;
   reviewsSub: string;
   localGuide: string;
-  galleryEyebrow: string;
-  galleryTitle: string;
-  gallerySub: string;
   ctaTitle: string;
   ctaSub: string;
   ctaWa: string;

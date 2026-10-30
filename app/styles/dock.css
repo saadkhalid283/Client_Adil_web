@@ -20,7 +20,7 @@
   border-radius: 999px; font-weight: 800; font-size: 15px; text-decoration: none; color: #fff;
 }
 .dock__wa { background: var(--green); box-shadow: 0 6px 16px rgba(22,163,74,0.3); }
-.dock__call { background: var(--orange); box-shadow: 0 6px 16px rgba(245,96,61,0.3); }
+.dock__call { background: var(--orange); box-shadow: 0 6px 16px rgba(214, 64, 28,0.3); }
 
 @media (prefers-reduced-motion: reduce) {
   .dock, .dock[data-tucked="true"] { transform: none; transition: opacity var(--dur-micro) linear; }

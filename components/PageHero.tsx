@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Words } from "@/components/motion/Words";
 import { useSite } from "@/lib/site-context";
 
 export interface PageCrumb {
@@ -36,7 +37,7 @@ export function PageHero({ eyebrowAr, eyebrowEn, titleAr, titleEn, subAr, subEn,
           </ol>
         </nav>
         <span className="section-eyebrow section-eyebrow--orange page-hero__eyebrow">{isAr ? eyebrowAr : eyebrowEn}</span>
-        <h1 className="page-hero__title">{isAr ? titleAr : titleEn}</h1>
+        <h1 className="page-hero__title"><Words text={isAr ? titleAr : titleEn} trigger="load" /></h1>
         {sub ? <p className="page-hero__sub">{sub}</p> : null}
         <div className="section-rule section-rule--orange section-rule--left" />
       </div>

@@ -17,38 +17,38 @@ export interface FaqCopy {
 export const faqContent: Record<Lang, FaqCopy> = {
   ar: {
     eyebrow: "إجابات سريعة",
-    title: "أسئلة يسألها عملاؤنا كثيراً",
+    title: "أسئلة يطرحها عملاؤنا كثيراً",
     moreTitle: "ما زال عندك سؤال؟",
     moreCta: "اسأل عادل على واتساب",
     moreMsg: "السلام عليكم، عندي سؤال قبل الحجز",
     items: [
       {
         q: "كم تكلفة الإصلاح؟",
-        a: "نتفق معك على السعر قبل بدء العمل، ولا توجد أي رسوم مخفية. تعرف التكلفة أولاً ثم تقرر.",
+        a: "نتفق معك على السعر قبل بدء العمل، ولا توجد رسوم مخفية. تعرف التكلفة أولاً ثم تقرر.",
       },
       {
-        q: "هل تعملون في الليل وفي عطلة نهاية الأسبوع؟",
-        a: "نعم، نعمل يومياً من الساعة ٨ صباحاً حتى منتصف الليل، سبعة أيام في الأسبوع بدون إجازات.",
+        q: "هل تعملون في المساء وفي عطلة نهاية الأسبوع؟",
+        a: "نعم، نعمل كل يوم من 8 صباحاً حتى منتصف الليل، سبعة أيام في الأسبوع دون إجازات.",
       },
       {
-        q: "ما هي المناطق التي تخدمونها؟",
-        a: "نخدم جميع أنحاء جدة. راسلنا بموقعك على واتساب أولاً لنؤكد معك موعد الوصول.",
+        q: "ما المناطق التي تخدمونها؟",
+        a: "نخدم جميع أنحاء جدة. أرسل لنا موقعك على واتساب لنؤكد معك موعد الوصول.",
       },
       {
-        q: "ما هي الأجهزة التي تصلحونها؟",
-        a: "المكيفات الشباك والسبليت والمركزية (بما فيها تعبئة الفريون)، والغسالات الأوتوماتيك (بما فيها أعطال البوردة)، والثلاجات (ضعف التبريد والتسريب والكمبروسر)، وتركيب مواسير الأجهزة الكهربائية.",
+        q: "ما الأجهزة التي تصلحونها؟",
+        a: "مكيفات الشباك والسبليت والمركزي (مع تعبئة الفريون)، والغسالات الأوتوماتيك (مع أعطال اللوحة الإلكترونية)، والثلاجات (ضعف التبريد والتسرّب والكمبروسر)، وتمديد مواسير الأجهزة الكهربائية.",
       },
       {
         q: "هل يوجد ضمان على الإصلاح؟",
-        a: "نعم، على كل إصلاح ضمان. وإذا رجعت المشكلة نعود إليك بدون أي تكلفة إضافية.",
+        a: "نعم، على كل إصلاح ضمان. وإذا عادت المشكلة نرجع إليك دون أي تكلفة إضافية.",
       },
       {
         q: "كيف أحجز موعداً؟",
-        a: "اتصل بنا أو راسلنا على واتساب، واضغط على أزرار الاتصال أو واتساب في الموقع. أخبرنا بالمشكلة ونرتب معك الموعد.",
+        a: "اتصل بنا أو راسلنا على واتساب. أخبرنا بالمشكلة، ونرتب معك الموعد.",
       },
       {
-        q: "هل تستبدلون قطعاً بدون حاجة؟",
-        a: "لا. نشرح لك العطل أولاً، ولا نغيّر أي قطعة إلا إذا كانت ضرورية.",
+        q: "هل تغيّرون قطعاً دون حاجة؟",
+        a: "لا. نشرح لك العطل أولاً، ولا نغيّر أي قطعة إلا عند الحاجة.",
       },
     ],
   },
@@ -64,12 +64,12 @@ export const faqContent: Record<Lang, FaqCopy> = {
         a: "We agree the price with you before any work starts, and there are no hidden fees. You know the cost first, then you decide.",
       },
       {
-        q: "Do you work at night and on weekends?",
-        a: "Yes. We work every day from 8am to midnight, seven days a week with no days off.",
+        q: "Do you work evenings and weekends?",
+        a: "Yes. We work every day from 8 am to midnight, seven days a week with no days off.",
       },
       {
         q: "Which areas do you cover?",
-        a: "We cover all of Jeddah. Message us your location on WhatsApp first so we can confirm timing with you.",
+        a: "We cover all of Jeddah. Send us your location on WhatsApp and we will confirm the arrival time with you.",
       },
       {
         q: "Which appliances do you repair?",
@@ -81,11 +81,11 @@ export const faqContent: Record<Lang, FaqCopy> = {
       },
       {
         q: "How do I book?",
-        a: "Call us or message us on WhatsApp using the call and WhatsApp buttons on this site. Tell us the problem and we will arrange a time with you.",
+        a: "Call us or message us on WhatsApp. Tell us the problem and we will arrange a time with you.",
       },
       {
-        q: "Do you replace parts you do not need to?",
-        a: "No. We explain the fault to you first, and we only replace a part when it is necessary.",
+        q: "Do you replace parts that do not need replacing?",
+        a: "No. We explain the fault to you first, and we only replace a part when it is needed.",
       },
     ],
   },

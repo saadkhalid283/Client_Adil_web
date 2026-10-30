@@ -11,9 +11,9 @@ export const locationContent: { ar: LocationCopy; en: LocationCopy } = {
     button: "أرسل موقعي عبر واتساب",
     busy: "جارٍ تحديد موقعك…",
     privacy:
-      "يُضاف موقعك فقط إلى رسالة واتساب على هاتفك. لا نستلمه إلا إذا أرسلتها أنت.",
-    messageWithLocation: "السلام عليكم، أحتاج إلى إصلاح. موقعي:",
-    messagePlain: "السلام عليكم، أحتاج إلى إصلاح.",
+      "يُضاف موقعك إلى رسالة واتساب على هاتفك فقط، ولا يصلنا إلا إذا أرسلتها أنت.",
+    messageWithLocation: "السلام عليكم، أحتاج إلى خدمة إصلاح. موقعي:",
+    messagePlain: "السلام عليكم، أحتاج إلى خدمة إصلاح.",
   },
   en: {
     button: "Send my location on WhatsApp",

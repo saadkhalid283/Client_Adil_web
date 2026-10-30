@@ -3,12 +3,14 @@
 import { Phone } from "lucide-react";
 import type { Translations } from "@/lib/types";
 import { wa, PHONE_PRIMARY } from "@/lib/constants";
+import { SkylineDraw } from "./motion/SkylineDraw";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { SendLocationButton } from "./SendLocationButton";
 
 export function CtaSection({ L }: { L: Translations }) {
   return (
     <section className="cta-section">
+      <SkylineDraw trigger="reveal" />
       <div className="cta-section__glow" />
       <div className="cta-section__inner" data-reveal>
         <h2 className="cta-section__title">{L.ctaTitle}</h2>

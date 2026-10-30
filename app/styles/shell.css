@@ -275,3 +275,8 @@ html { scrollbar-gutter: stable; scroll-padding-top: calc(var(--header-h) + 16px
   .sh-brand__name { font-size: 14px; max-width: none; }
   .sh-header__inner { padding-inline: 10px; }
 }
+
+/* Footer credit: maker's email, tappable */
+.sh-footer__credit { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 2px 4px; }
+.sh-footer__mail { display: inline-flex; align-items: center; min-height: 44px; color: #c9c8e0; text-decoration: underline; text-underline-offset: 3px; unicode-bidi: isolate; direction: ltr; }
+.sh-footer__mail:hover, .sh-footer__mail:focus-visible { color: #fff; }

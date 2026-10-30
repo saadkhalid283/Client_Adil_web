@@ -14,7 +14,7 @@ const SITE_URL =
 const TITLE_AR = "عادل للتبريد والتكييف | إصلاح مكيفات وثلاجات وغسالات في جدة";
 const TITLE_EN = "Adel Cooling & AC | AC, Fridge & Washing Machine Repair in Jeddah";
 const DESC_AR =
-  "عادل للتبريد والتكييف في جدة: إصلاح مكيفات (شباك وسبليت ومركزي)، ثلاجات، غسالات أتوماتيك، وتمديد مواسير. خدمة سريعة، أسعار شفافة، وضمان على الإصلاح في جميع أنحاء جدة.";
+  "عادل للتبريد والتكييف في جدة: إصلاح المكيفات (شباك وسبليت ومركزي) والثلاجات والغسالات الأتوماتيك وتمديد المواسير. نتفق على السعر قبل البدء، وعلى كل إصلاح ضمان.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -124,14 +124,12 @@ const jsonLd = {
       },
       priceRange: "$$",
       knowsAbout: BRANDS,
-      currenciesAccepted: "SAR",
       knowsLanguage: ["ar", "en"],
       address: {
         "@type": "PostalAddress",
         addressLocality: "Jeddah",
         addressRegion: "Makkah Province",
         addressCountry: "SA",
-        description: "أبحر الجنوبية وحي البساتين",
       },
       geo: { "@type": "GeoCoordinates", latitude: 21.6893272, longitude: 39.1125107 },
       hasMap: "https://www.google.com/maps/search/?api=1&query=21.68932718013044,39.112510675275004",

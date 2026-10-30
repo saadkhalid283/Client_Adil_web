@@ -1,23 +1,32 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { BadgeCheck, Phone, Zap } from "lucide-react";
 import type { Translations } from "@/lib/types";
 import { wa, PHONE_PRIMARY, RATING } from "@/lib/constants";
+import { GoogleLogo } from "@/components/GoogleLogo";
+import { RatingStars } from "@/components/RatingStars";
 import { reviewsData } from "@/lib/data";
 import { heroContent } from "@/lib/content/hero";
 import { useOpenNow } from "@/lib/use-open-now";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
+import { fxContent } from "@/lib/content/fx";
+import { Words } from "@/components/motion/Words";
+import { TemperatureDial } from "@/components/motion/TemperatureDial";
+import { SnowDrift } from "@/components/motion/SnowDrift";
+import { SkylineDraw } from "@/components/motion/SkylineDraw";
 
 export function Hero({ L }: { L: Translations }) {
   const isAr = L.dir === "rtl";
   const C = isAr ? heroContent.ar : heroContent.en;
   const open = useOpenNow();
+  const FX = isAr ? fxContent.ar : fxContent.en;
   const review = reviewsData[0];
   const statusText = open === null ? L.heroEyebrow : open ? C.open : C.closed;
   const statusState = open === null ? "pending" : open ? "open" : "closed";
 
   const stats = [
-    { num: "4.8", suffix: "★", label: isAr ? "تقييم العملاء" : "Customer rating" },
+    { num: isAr ? "بضمان" : "Guaranteed", suffix: "", label: isAr ? "على كل إصلاح" : "On every repair" },
     { num: "7/7", suffix: "", label: isAr ? "متاح كل أيام الأسبوع" : "Available every day" },
     { num: isAr ? "نفس" : "Same", suffix: isAr ? " اليوم" : "-day", label: isAr ? "خدمة سريعة" : "Fast service" },
   ];
@@ -31,9 +40,11 @@ export function Hero({ L }: { L: Translations }) {
       />
       <div
         className="hero-blob"
-        style={{ bottom: "-60px", insetInlineStart: "-40px", width: "300px", height: "300px", background: "radial-gradient(circle, rgba(245,96,61,0.14), transparent 70%)" }}
+        style={{ bottom: "-60px", insetInlineStart: "-40px", width: "300px", height: "300px", background: "radial-gradient(circle, rgba(214, 64, 28,0.14), transparent 70%)" }}
       />
       <div className="hero-grid-lines" />
+      <SnowDrift />
+      <SkylineDraw trigger="load" />
 
       <div className="hero-inner">
         <div className="hero-grid" style={{ display: "grid" }}>
@@ -51,10 +62,10 @@ export function Hero({ L }: { L: Translations }) {
             </div>
 
             <h1 className="hero-h1">
-              {L.heroTitle1}
+              <Words text={L.heroTitle1} trigger="load" />{" "}
               <br />
-              <span className="hero-h1-accent">{L.heroTitle2}</span>{" "}
-              <span className="hero-h1-guarantee">{L.heroTitle3}</span>
+              <span className="hero-h1-accent"><Words text={L.heroTitle2} trigger="load" /></span>{" "}
+              <span className="hero-h1-guarantee"><Words text={L.heroTitle3} trigger="load" /></span>
             </h1>
 
             <p className="hero-sub">{L.heroSub}</p>
@@ -76,14 +87,18 @@ export function Hero({ L }: { L: Translations }) {
 
             <div className="hero-proof">
               <div className="hero-proof__line">
+                <GoogleLogo size={20} />
                 <strong dir="ltr">{RATING}</strong>
-                <span className="hero-proof__stars" aria-hidden="true">★★★★★</span>
+                <span className="hero-proof__stars" data-reveal>
+                  <RatingStars value={Number(RATING)} size={16} pop />
+                </span>
                 <span>· 18 {C.ratingLine}</span>
               </div>
               <figure className="hero-quote">
                 <blockquote>{isAr ? review.ar : review.en}</blockquote>
                 <figcaption>{review.name}</figcaption>
               </figure>
+              <TemperatureDial variant="compact" caption={FX.dialCaption} />
             </div>
 
             <div className="hero-badges">
@@ -101,6 +116,8 @@ export function Hero({ L }: { L: Translations }) {
             </div>
 
             <div className="hero-illus-card">
+              <div className="fx-ac">
+              <div className="fx-ac__art">
               <svg
                 viewBox="0 0 360 280"
                 fill="none"
@@ -116,7 +133,6 @@ export function Hero({ L }: { L: Translations }) {
 
                 {/* Display panel */}
                 <rect x="62" y="66" width="88" height="50" className="hero-svg-brand" />
-                <text x="106" y="98" fill="#ffffff" fontSize="20" fontWeight="800" textAnchor="middle" fontFamily="system-ui, sans-serif">22°C</text>
 
                 {/* Power light */}
                 <rect x="164" y="74" width="12" height="12" className="hero-svg-coral" />
@@ -157,6 +173,10 @@ export function Hero({ L }: { L: Translations }) {
                   <path d="M -3 -16 a 9 9 0 1 0 9 9 L 6 14 a 5 5 0 0 1 -10 0 L -4 -7 a 9 9 0 0 0 1 -9 Z" fill="#ffffff" />
                 </g>
               </svg>
+              <TemperatureDial variant="panel" />
+              </div>
+              <p className="fx-ac__cap">{FX.dialCaption}</p>
+              </div>
             </div>
 
             <div className="hero-float-fast">

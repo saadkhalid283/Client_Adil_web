@@ -7,6 +7,7 @@ import { Menu, Phone, Search, Snowflake } from "lucide-react";
 import { useSite } from "@/lib/site-context";
 import { NAV_ITEMS } from "@/lib/nav";
 import { PHONE_PRIMARY } from "@/lib/constants";
+import { ScrollCooling } from "@/components/motion/ScrollCooling";
 import { ThemeToggle } from "./ThemeToggle";
 import { LangToggle } from "./LangToggle";
 
@@ -104,6 +105,7 @@ export const Header = forwardRef<HTMLButtonElement, HeaderProps>(function Header
           </button>
         </div>
       </div>
+      <ScrollCooling />
     </header>
   );
 });

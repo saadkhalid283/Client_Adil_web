@@ -5,9 +5,9 @@ import { ServicesIndexView } from "@/components/views/ServicesIndexView";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://adelcooling.com";
 
 export const metadata: Metadata = {
-  title: "Home Appliance & AC Repair Services in Jeddah",
+  title: "AC and appliance repair services in Jeddah",
   description:
-    "خدمات إصلاح المكيفات والثلاجات والغسالات في جدة: شباك وسبليت ومركزي وتمديد مواسير. السعر قبل العمل وضمان على كل إصلاح. تواصل معنا واتساب أو اتصال.",
+    "خدمات إصلاح المكيفات والثلاجات والغسالات في جدة: شباك وسبليت ومركزي وتمديد مواسير. نتفق على السعر قبل العمل، وعلى كل إصلاح ضمان.",
   alternates: { canonical: "/services" },
   openGraph: { url: "/services" },
 };

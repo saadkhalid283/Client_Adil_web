@@ -72,7 +72,11 @@ export function SiteFooter() {
 
       <div className="sh-footer__bottom">
         <span>© {new Date().getFullYear()} {L.brand}. {L.rights}.</span>
-        <span>{isAr ? "مصنوع بعناية في جدة" : "Made with care in Jeddah"}</span>
+        <span className="sh-footer__credit">
+          {isAr ? "مصنوع بعناية في جدة" : "Made with care in Jeddah"}
+          <span aria-hidden="true"> · </span>
+          <a className="sh-footer__mail" href="mailto:saadkhh212@gmail.com">saadkhh212@gmail.com</a>
+        </span>
       </div>
     </footer>
   );

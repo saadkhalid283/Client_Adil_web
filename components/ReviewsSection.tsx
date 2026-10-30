@@ -5,6 +5,8 @@ import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import type { SiteProps } from "@/lib/site-props";
 import { reviewsData } from "@/lib/data";
 import { RATING } from "@/lib/constants";
+import { GoogleLogo } from "@/components/GoogleLogo";
+import { RatingStars } from "@/components/RatingStars";
 
 const AVATAR_GRADIENTS = [
   "linear-gradient(135deg, #0ea5e9, #0284c7)",
@@ -75,25 +77,17 @@ export function ReviewsSection({ L, isAr }: SiteProps) {
           <div className="section-rule" />
         </div>
 
-        {/* Rating banner */}
+        {/* Rating banner: one rating, shown once */}
         <div className="rating-banner" data-reveal>
-          <div className="rating-banner__score">{isAr ? "٤.٨" : RATING}</div>
-          <div>
-            <div className="rating-banner__stars">★★★★★</div>
-            <div className="rating-banner__text">
-              {isAr ? "تقييم عملائنا على جوجل" : "Customer rating on Google"}
-            </div>
-          </div>
-          <div className="rating-banner__divider" aria-hidden="true" />
-          <div>
-            <div className="rating-banner__starrow">
-              {[1, 2, 3, 4, 5].map((s) => (
-                <Star key={s} size={18} fill={s <= 4 ? "#fbbf24" : "none"} color="#fbbf24" strokeWidth={1.5} />
-              ))}
-            </div>
-            <div className="rating-banner__text">
-              {isAr ? "مبني على تقييمات حقيقية" : "Based on real reviews"}
-            </div>
+          <GoogleLogo size={36} />
+          <div className="rating-banner__score" dir="ltr">{RATING}</div>
+          <div className="rating-banner__meta">
+            <RatingStars
+              value={Number(RATING)}
+              size={22}
+              label={isAr ? `التقييم ${RATING} من 5 على جوجل` : `Rated ${RATING} out of 5 on Google`}
+            />
+            <div className="rating-banner__text">{isAr ? "18 تقييماً على جوجل" : "18 Google ratings"}</div>
           </div>
         </div>
 

@@ -1,6 +1,8 @@
 "use client";
 
-import { Star } from "lucide-react";
+import { RATING } from "@/lib/constants";
+import { GoogleLogo } from "@/components/GoogleLogo";
+import { RatingStars } from "@/components/RatingStars";
 import type { Translations } from "@/lib/types";
 import { trustCopy } from "@/lib/content/trust";
 
@@ -31,11 +33,8 @@ export function TrustCard({ isAr }: TrustProps) {
         <div className="trust-row">
           <dt>{c.rating}</dt>
           <dd>
-            <span className="trust-stars" role="img" aria-label={c.ratingNote}>
-              {[0, 1, 2, 3, 4].map((n) => (
-                <Star key={n} size={15} fill="currentColor" strokeWidth={0} />
-              ))}
-            </span>
+            <GoogleLogo size={18} />
+            <RatingStars value={Number(RATING)} size={15} label={c.ratingNote} />
             <bdi className="trust-rating">{c.ratingValue}</bdi>
           </dd>
         </div>

@@ -15,8 +15,8 @@
   --teal-3: #a5b4fc;
   --teal-soft: rgba(129, 140, 248, 0.14);
   --teal-border: rgba(129, 140, 248, 0.32);
-  --orange-soft: rgba(245, 96, 61, 0.16);
-  --orange-border: rgba(245, 96, 61, 0.36);
+  --orange-soft: rgba(214, 64, 28, 0.16);
+  --orange-border: rgba(214, 64, 28, 0.36);
 
   --slate: #0b0a14;
   --slate-2: #14132a;
@@ -47,7 +47,6 @@
 :root[data-theme="dark"] .rev-guide,
 :root[data-theme="dark"] .svcp-card__more,
 :root[data-theme="dark"] .svcp-link,
-:root[data-theme="dark"] .pg-work__link,
 :root[data-theme="dark"] .crumbs a:hover { color: var(--teal-3); }
 :root[data-theme="dark"] .sendloc__btn { color: #4ade80; }
 

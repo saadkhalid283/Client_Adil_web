@@ -79,35 +79,6 @@ html { scroll-padding-top: 78px; }
 .why-desc { font-size: 15px; line-height: 1.7; }
 @media (min-width: 640px) { .why-card { padding: 30px 26px; } .why-icon-wrap { margin-bottom: 20px; } }
 
-/* ── Gallery ── */
-.gallery-viewport { border-radius: 18px; touch-action: pan-y; }
-.gallery-slide { height: auto; aspect-ratio: 4 / 5; max-height: 460px; }
-.gallery-photo { object-position: center 30%; }
-.gallery-caption { padding: 44px 18px 18px; }
-.gallery-chip { font-size: 12px; margin-bottom: 8px; }
-.gallery-title { font-size: clamp(18px, 5vw, 25px); }
-.gallery-desc { font-size: 14px; line-height: 1.55; }
-.gallery-arrow { width: 44px; height: 44px; }
-.gallery-arrow--prev { inset-inline-start: 8px; }
-.gallery-arrow--next { inset-inline-end: 8px; }
-.gallery-dots { gap: 0; margin-top: 10px; }
-.gallery-dots .gallery-dot { width: 28px; height: 44px; border-radius: 0; background: transparent; position: relative; }
-.gallery-dots .gallery-dot::after {
-  content: ""; position: absolute; top: 50%; inset-inline-start: 50%;
-  width: 9px; height: 9px; margin-top: -4.5px; margin-inline-start: -4.5px;
-  border-radius: 5px; background: var(--line);
-}
-.gallery-dots .gallery-dot--active { width: 44px; background: transparent; }
-.gallery-dots .gallery-dot--active::after { width: 30px; margin-inline-start: -15px; background: var(--teal); }
-@media (min-width: 640px) {
-  .gallery-slide { aspect-ratio: auto; height: 460px; max-height: none; }
-  .gallery-viewport { border-radius: 24px; }
-  .gallery-caption { padding: 58px 30px 30px; }
-  .gallery-desc { font-size: 13.5px; }
-  .gallery-arrow--prev { inset-inline-start: 16px; }
-  .gallery-arrow--next { inset-inline-end: 16px; }
-}
-
 /* ── Contact ── */
 .contact-card { padding: 16px; gap: 14px; }
 .contact-label { font-size: 12px; }

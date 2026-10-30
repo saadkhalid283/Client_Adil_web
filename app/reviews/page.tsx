@@ -5,9 +5,9 @@ import { ReviewsView } from "@/components/views/ReviewsView";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://adelcooling.com";
 
 export const metadata: Metadata = {
-  title: "Customer Reviews",
+  title: "Customer reviews",
   description:
-    "اقرأ آراء العملاء عن عادل للتبريد والتكييف في جدة. تقييم 4.8 من 18 تقييماً لعملاء أصلحوا مكيفاتهم وثلاجاتهم وغسالاتهم عندنا بضمان.",
+    "اقرأ آراء عملاء عادل للتبريد والتكييف في جدة. تقييم 4.8 من 18 تقييماً على جوجل، من عملاء أصلحنا لهم المكيفات والثلاجات والغسالات.",
   alternates: { canonical: "/reviews" },
   openGraph: { url: "/reviews" },
 };

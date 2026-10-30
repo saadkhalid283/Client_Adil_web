@@ -1,0 +1,178 @@
+/* ════ fx: signature motion layer ("Jeddah heat -> 22 degree comfort") ════
+   Rules: transform/opacity only, EXCEPT the skyline line-draw which animates SVG stroke-dashoffset
+   (the one allowed exception; it is a one-shot, ~15 short paths). No libraries, sharp edges only,
+   theme tokens only, logical properties / direction-aware origins. SSR + no-JS + reduced-motion show final states.
+   Ambient loops: only the snow drift (plus the pre-existing status dot). Everything else is one-shot or hover.
+
+   .fx-w / .fx-w__in      Word rise on hero + page h1: headline lands with weight, in reading order.
+   .fx-dial               22 degree count-down 45 -> 22 with hot -> cool bar: tells the product story once.
+   .fx-snow / .fx-flake   Slow drifting flakes behind the hero: "cold air", paused off-screen.
+   .fx-sk                 Skyline line-draw: places the brand in Jeddah; hero (load) and CTA divider (reveal).
+   .fx-sc                 Header scroll progress, coral -> indigo: orientation + the same heat-to-cool motif.
+   .fx-star               Rating stars pop in sequence once: draws the eye to the proof.
+   sheen / charge         Hover-only: card sheen sweep, call-button coral charge fill: affordance feedback. */
+
+:root { --fx-d: 1; }
+[dir="rtl"] { --fx-d: -1; }
+
+/* ── 1. Words ─────────────────────────────────────────────────────────── */
+.fx-w {
+  display: inline-block; vertical-align: top; overflow: hidden;
+  padding: 0.14em 0.04em 0.34em; margin: -0.14em -0.04em -0.34em;
+}
+.fx-w__in { display: inline-block; }
+@keyframes fx-rise {
+  from { transform: translateY(calc(100% + 0.4em)); }
+  to { transform: none; }
+}
+.fx-words--load .fx-w__in { animation: fx-rise var(--dur-hero) var(--ease-out) calc(var(--i, 0) * 55ms) both; }
+/* reveal: hidden only when the reveal system is active, so no-JS shows text */
+.reveal-on [data-reveal] .fx-words--reveal .fx-w__in {
+  transform: translateY(calc(100% + 0.4em));
+  transition: transform var(--dur-hero) var(--ease-out) calc(var(--i, 0) * 55ms);
+}
+.reveal-on [data-reveal].is-visible .fx-words--reveal .fx-w__in { transform: none; }
+
+/* ── 2. Temperature dial ──────────────────────────────────────────────── */
+.fx-dial__num { font-family: var(--display); font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1; white-space: nowrap; }
+.fx-dial__bar { position: relative; overflow: hidden; background: var(--teal-soft); }
+.fx-dial__fill {
+  position: absolute; inset: 0;
+  transform: scaleX(var(--fx-p, 1)); transform-origin: left center;
+}
+[dir="rtl"] .fx-dial__fill { transform-origin: right center; }
+.fx-dial__fill--hot { background: var(--orange); opacity: calc(1 - var(--fx-c, 1)); }
+.fx-dial__fill--cool { background: var(--teal-2); opacity: var(--fx-c, 1); }
+.fx-dial.is-running .fx-dial__fill { will-change: transform, opacity; }
+
+/* compact: phone strip under the review quote */
+.fx-dial--compact {
+  display: flex; align-items: center; gap: 14px; margin-top: 14px;
+  padding: 12px 14px; background: var(--surface); border: 1px solid var(--line);
+}
+.fx-dial--compact .fx-dial__num { flex: none; width: 4.1ch; font-size: 30px; color: var(--ink); }
+.fx-dial--compact .fx-dial__side { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.fx-dial--compact .fx-dial__bar { height: 6px; }
+.fx-dial__cap { margin: 0; font-size: 13.5px; font-weight: 700; line-height: 1.5; color: var(--ink-2); }
+
+/* panel: lives on the AC display inside the hero illustration card (percentages match the SVG viewBox 360x280) */
+.fx-ac { width: 100%; max-width: 340px; }
+.fx-ac__art { position: relative; }
+.fx-ac__art > svg { display: block; width: 100%; }
+.fx-dial--panel { display: contents; }
+.fx-dial--panel .fx-dial__num {
+  position: absolute; left: 17.22%; width: 24.44%; top: 23.57%; height: 14.5%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 21px; color: #fff;
+}
+.fx-dial--panel .fx-dial__side { display: contents; }
+.fx-dial--panel .fx-dial__bar {
+  position: absolute; left: 17.22%; width: 24.44%; top: 38.8%; height: 3px;
+  background: rgba(255, 255, 255, 0.28);
+}
+.fx-ac__cap { margin: 12px 0 0; text-align: center; font-size: 13.5px; font-weight: 700; color: var(--ink-2); line-height: 1.5; }
+@media (min-width: 880px) { .fx-dial--compact { display: none; } }
+
+/* ── 3. Snow drift ────────────────────────────────────────────────────── */
+.fx-snow { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; color: var(--teal-2); }
+.fx-flake {
+  position: absolute; top: 0; bottom: 0; inset-inline-start: var(--x); width: var(--s);
+  opacity: 0; animation: fx-fall var(--d) linear var(--l) infinite;
+}
+.fx-flake__svg { display: block; width: 100%; height: auto; animation: fx-spin calc(var(--d) * 0.8) linear var(--l) infinite; }
+.fx-flake--rev .fx-flake__svg { animation-direction: reverse; }
+@keyframes fx-fall {
+  0% { transform: translateY(-14%); opacity: 0; }
+  10% { opacity: var(--o); }
+  90% { opacity: var(--o); }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+@keyframes fx-spin { to { transform: rotate(360deg); } }
+.fx-snow.is-paused .fx-flake, .fx-snow.is-paused .fx-flake__svg { animation-play-state: paused; }
+@media (max-width: 639px) { .fx-flake:nth-child(n+7) { display: none; } }
+
+/* Hero: skyline sits in reserved space at the bottom edge */
+.hero-inner { padding-bottom: 104px; }
+.hero-section > .fx-skw { position: absolute; z-index: 0; inset-inline: 0; bottom: 0; }
+@media (min-width: 880px) { .hero-inner { padding-bottom: 150px; } }
+
+/* ── 4. Skyline ───────────────────────────────────────────────────────── */
+.fx-skw {
+  display: block; height: 64px; max-width: 1280px; margin-inline: auto; pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.hero-section > .fx-skw, .cta-section > .fx-skw { max-width: none; margin-inline: 0; }
+.fx-sk { display: block; width: 100%; height: 100%; overflow: hidden; }
+.fx-sk path { stroke: var(--teal); stroke-opacity: 0.35; stroke-width: 2; stroke-linejoin: miter; }
+:root[data-theme="dark"] .fx-sk path { stroke: var(--teal-3); stroke-opacity: 0.6; }
+.cta-section .fx-sk path { stroke: var(--teal-3); stroke-opacity: 0.5; }
+@keyframes fx-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+.fx-sk--load path {
+  stroke-dasharray: 1;
+  animation: fx-draw 1600ms var(--ease-out) calc(300ms + var(--i, 0) * 90ms) both;
+}
+.reveal-on [data-reveal].is-visible .fx-sk--reveal path {
+  stroke-dasharray: 1;
+  animation: fx-draw 1600ms var(--ease-out) calc(var(--i, 0) * 90ms) both;
+}
+/* CTA divider: reserved room at the top of the dark band */
+.cta-section { padding-top: 104px; }
+.cta-section > .fx-skw { position: absolute; z-index: 0; top: 0; inset-inline: 0; }
+.cta-section__inner { z-index: 1; }
+@media (min-width: 880px) {
+  .fx-skw { height: 110px; }
+  .cta-section { padding-top: 144px; }
+}
+
+/* ── 5. Scroll cooling ────────────────────────────────────────────────── */
+.fx-sc { position: absolute; inset-inline: 0; bottom: 0; height: 3px; overflow: hidden; pointer-events: none; }
+.fx-sc__l { position: absolute; inset: 0; transform: scaleX(var(--fx-sp, 0)); transform-origin: left center; }
+[dir="rtl"] .fx-sc__l { transform-origin: right center; }
+.fx-sc__l--hot { background: var(--orange); opacity: calc(1 - var(--fx-sp, 0)); }
+.fx-sc__l--cool { background: var(--teal-2); opacity: var(--fx-sp, 0); }
+
+
+/* ── 7. Stars pop (rating line) ───────────────────────────────────────── */
+.hero-proof__stars .fx-star { display: inline-block; }
+.reveal-on .hero-proof__stars[data-reveal] { opacity: 1; transform: none; transition: none; }
+.reveal-on .hero-proof__stars[data-reveal]:not(.is-visible) .fx-star { opacity: 0; transform: scale(0.6); }
+.reveal-on .hero-proof__stars[data-reveal].is-visible .fx-star { animation: fx-pop 360ms var(--ease-out) calc(var(--i, 0) * 60ms) both; }
+@keyframes fx-pop { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: none; } }
+
+/* ── 8. Hover micro-interactions (hover-capable devices only) ─────────── */
+.hero-call, .svcp-btn--call, .sh-call { position: relative; overflow: hidden; isolation: isolate; }
+.hero-call::before, .svcp-btn--call::before, .sh-call::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: color-mix(in srgb, var(--orange) 76%, #000);
+  transform: scaleX(0); transform-origin: left center;
+}
+[dir="rtl"] .hero-call::before, [dir="rtl"] .svcp-btn--call::before, [dir="rtl"] .sh-call::before { transform-origin: right center; }
+.sh-call:hover { background: var(--orange); }
+.svc-card, .svcp-card { position: relative; overflow: hidden; }
+.svc-card::after, .svcp-card::after::after {
+  content: ""; position: absolute; top: 0; bottom: 0; inset-inline-start: 0; width: 45%; pointer-events: none;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--teal-2) 16%, transparent), transparent);
+  transform: translateX(calc(-130% * var(--fx-d))); opacity: 0;
+}
+@media (hover: hover) {
+  .hero-call::before, .svcp-btn--call::before, .sh-call::before { transition: transform 380ms var(--ease-out); }
+  .hero-call:hover::before, .svcp-btn--call:hover::before, .sh-call:hover::before,
+  .hero-call:focus-visible::before, .svcp-btn--call:focus-visible::before, .sh-call:focus-visible::before { transform: scaleX(1); }
+  .svc-card:hover::after, .svcp-card:hover::after:hover::after {
+    opacity: 1; transform: translateX(calc(330% * var(--fx-d))); transition: transform 600ms var(--ease-out);
+  }
+}
+
+/* ── Reduced motion: final states, no movement ────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .fx-words--load .fx-w__in { animation: none; }
+  .reveal-on [data-reveal] .fx-words--reveal .fx-w__in { transform: none !important; transition: none !important; }
+  .fx-snow { display: none; }
+  .fx-sk--load path, .reveal-on [data-reveal].is-visible .fx-sk--reveal path { animation: none; stroke-dasharray: none; }
+  .reveal-on .hero-proof__stars[data-reveal]:not(.is-visible) .fx-star { opacity: 1; transform: none; }
+  .reveal-on .hero-proof__stars[data-reveal] { opacity: 1 !important; transform: none !important; }
+  .reveal-on .hero-proof__stars[data-reveal].is-visible .fx-star { animation: none; }
+  .hero-call::before, .svcp-btn--call::before, .sh-call::before { transition: none; }
+  .svc-card:hover::after, .svcp-card:hover::after:hover::after { opacity: 0; transition: none; }
+}

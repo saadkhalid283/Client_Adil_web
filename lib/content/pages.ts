@@ -14,31 +14,31 @@ export const pageCopy = {
     titleAr: "تواصل مع عادل في جدة",
     titleEn: "Contact Adel in Jeddah",
     subAr: "اتصل أو راسلنا على واتساب. نخدم جميع أنحاء جدة يومياً من 8 صباحاً حتى منتصف الليل.",
-    subEn: "Call or message us on WhatsApp. We cover all of Jeddah, daily from 8 AM to midnight.",
+    subEn: "Call or message us on WhatsApp. We cover all of Jeddah, daily from 8 am to midnight.",
   },
   about: {
     eyebrowAr: "من نحن",
     eyebrowEn: "About us",
-    titleAr: "فني صيانة تعرفه بالاسم",
-    titleEn: "A repair technician you can name",
+    titleAr: "عادل، فني تتعامل معه مباشرة",
+    titleEn: "Adel, a technician you deal with directly",
     subAr: "عادل يصلح المكيفات والثلاجات والغسالات في جدة. السعر يُتفق عليه قبل البدء، والإصلاح بضمان.",
     subEn: "Adel repairs ACs, fridges and washing machines in Jeddah. The price is agreed before work starts, and every repair is guaranteed.",
   },
   work: {
     eyebrowAr: "أعمالنا",
     eyebrowEn: "Our work",
-    titleAr: "صور من إصلاحات حقيقية",
-    titleEn: "Photos from real repairs",
-    subAr: "لقطات من العمل في منازل جدة: مكيفات وثلاجات وغسالات.",
-    subEn: "Snapshots from jobs in Jeddah homes: ACs, fridges and washing machines.",
+    titleAr: "ما نصلحه وكيف نعمل",
+    titleEn: "What we repair and how we work",
+    subAr: "ست خدمات وطريقة عمل واحدة واضحة: نفحص العطل، ونتفق على السعر، ثم نصلح بضمان.",
+    subEn: "Six services and one clear way of working: we find the fault, agree the price, then repair with a guarantee.",
   },
   reviews: {
     eyebrowAr: "آراء العملاء",
     eyebrowEn: "Reviews",
     titleAr: "ماذا يقول عملاؤنا",
     titleEn: "What our customers say",
-    subAr: "4.8 من 18 تقييم من العملاء",
-    subEn: "4.8 from 18 customer ratings",
+    subAr: "4.8 من 18 تقييماً على جوجل",
+    subEn: "4.8 from 18 Google ratings",
   },
   faq: {
     eyebrowAr: "أسئلة شائعة",
@@ -62,20 +62,6 @@ export const contactCopy = {
 };
 
 export const aboutCopy = {
-  ar: { whyEyebrow: "لماذا عادل", trustTitle: "تحقق منا قبل أن تتصل" },
-  en: { whyEyebrow: "Why Adel", trustTitle: "Check us before you call" },
+  ar: { whyEyebrow: "لماذا عادل", trustTitle: "تعرّف علينا قبل أن تتصل" },
+  en: { whyEyebrow: "Why Adel", trustTitle: "Get to know us before you call" },
 };
-
-export interface WorkLink {
-  href: string;
-  ar: string;
-  en: string;
-}
-
-/** Service page that matches each gallery photo, in galleryData order. */
-export const workLinks: WorkLink[] = [
-  { href: "/services/split-ac-repair", ar: "إصلاح مكيفات سبليت", en: "Split AC repair" },
-  { href: "/services/split-ac-repair", ar: "إصلاح مكيفات سبليت", en: "Split AC repair" },
-  { href: "/services/refrigerator-repair", ar: "إصلاح الثلاجات", en: "Refrigerator repair" },
-  { href: "/services/washing-machine-repair", ar: "إصلاح الغسالات", en: "Washing machine repair" },
-];
