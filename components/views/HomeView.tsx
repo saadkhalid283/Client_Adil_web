@@ -19,7 +19,7 @@ export function HomeView() {
       <Hero L={L} />
       <ServicesSection {...siteProps} />
       <BrandsSection L={L} />
-      <WhySection {...siteProps} />
+      <WhySection {...siteProps} photos />
       <HowItWorksSection L={L} />
       <ReviewsSection {...siteProps} />
       <FaqSection {...siteProps} limit={5} />

@@ -2,13 +2,16 @@
 
 import type { SiteProps } from "@/lib/site-props";
 import { whyData } from "@/lib/data";
+import { WhyPhotos } from "@/components/WhyPhotos";
 
-export function WhySection({ L, isAr }: SiteProps) {
+export function WhySection({ L, isAr, photos = false }: SiteProps & { photos?: boolean }) {
   const items = whyData(isAr ? "ar" : "en");
 
   return (
     <section id="why" className="section-wrap section-wrap--dark">
       <div className="section-inner">
+        {photos ? <WhyPhotos /> : null}
+
         {/* Heading */}
         <div className="section-head" style={{ textAlign: "center" }} data-reveal>
           <span className="section-eyebrow">{L.whyTitle}</span>
