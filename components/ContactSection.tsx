@@ -2,6 +2,7 @@
 
 import { Phone, MapPin, Clock, MessageCircle, Navigation } from "lucide-react";
 import type { SiteProps } from "@/lib/site-props";
+import { SendLocationButton } from "./SendLocationButton";
 import { wa, PHONE_PRIMARY, MAP_SRC, DIRECTIONS_LINK } from "@/lib/constants";
 
 export function ContactSection({ L, isAr }: SiteProps) {
@@ -9,7 +10,7 @@ export function ContactSection({ L, isAr }: SiteProps) {
     <section id="contact" className="section-wrap">
       <div className="section-inner">
         {/* Heading */}
-        <div style={{ marginBottom: "48px" }} data-reveal>
+        <div className="section-head" data-reveal>
           <span className="section-eyebrow section-eyebrow--orange">{L.contactTitle}</span>
           <h2 className="section-title">{L.contactSub}</h2>
           <div className="section-rule section-rule--orange section-rule--left" style={{ marginTop: "16px" }} />
@@ -36,7 +37,7 @@ export function ContactSection({ L, isAr }: SiteProps) {
               </div>
               <div>
                 <div className="contact-label">{L.primaryLine}</div>
-                <a className="contact-value" href={`tel:${PHONE_PRIMARY}`}>
+                <a className="contact-value contact-value--link" data-call href={`tel:${PHONE_PRIMARY}`}>
                   {PHONE_PRIMARY}
                 </a>
                 <div className="contact-sub">{L.callUs}</div>
@@ -72,7 +73,7 @@ export function ContactSection({ L, isAr }: SiteProps) {
             </div>
 
             {/* WhatsApp CTA card */}
-            <a className="wa-contact-btn" href={wa(L.floatMsg)} onClick={(e) => { e.preventDefault(); window.trackWhatsappConversion?.(e.currentTarget.href); }}>
+            <a className="wa-contact-btn" data-call href={wa(L.floatMsg)} onClick={(e) => { e.preventDefault(); window.trackWhatsappConversion?.(e.currentTarget.href); }}>
               <div
                 style={{
                   width: 46,
@@ -92,6 +93,7 @@ export function ContactSection({ L, isAr }: SiteProps) {
                 <div className="wa-contact-sub">{L.waCardSub}</div>
               </div>
             </a>
+            <SendLocationButton isAr={isAr} />
           </div>
 
           {/* Right: Map + directions */}

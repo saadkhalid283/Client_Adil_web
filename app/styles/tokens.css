@@ -1,0 +1,37 @@
+/* ════ Motion + spacing tokens (from Titan OS / Project R motion system) ════
+   Only transform + opacity animate. One easing curve. Max 700ms (hard cap 900ms). */
+:root {
+  --ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);   /* ease-out cubic */
+  --dur-instant: 100ms;
+  --dur-micro: 150ms;
+  --dur-std: 220ms;
+  --dur-large: 350ms;
+  --dur-hero: 600ms;
+
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 20px;
+  --sp-6: 24px; --sp-8: 32px; --sp-12: 48px; --sp-16: 64px;
+
+  --tap-min: 44px;           /* minimum touch target */
+  --gutter: 16px;            /* mobile page gutter */
+}
+
+/* Scroll reveal: 16px rise + fade, once. Stagger children 40ms (max 5). */
+.reveal-on [data-reveal] {
+  opacity: 0; transform: translateY(16px);
+  transition: opacity var(--dur-std) var(--ease-out), transform var(--dur-large) var(--ease-out);
+}
+.reveal-on [data-reveal].is-visible { opacity: 1; transform: none; }
+.reveal-on [data-stagger] > [data-reveal]:nth-child(2) { transition-delay: 40ms; }
+.reveal-on [data-stagger] > [data-reveal]:nth-child(3) { transition-delay: 80ms; }
+.reveal-on [data-stagger] > [data-reveal]:nth-child(4) { transition-delay: 120ms; }
+.reveal-on [data-stagger] > [data-reveal]:nth-child(n+5) { transition-delay: 160ms; }
+
+/* Reduced motion: movement collapses to a short opacity fade (feedback is kept). */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on [data-reveal] { opacity: 0 !important; transform: none !important; transition: opacity var(--dur-micro) linear !important; }
+  .reveal-on [data-reveal].is-visible { opacity: 1 !important; }
+}
+
+/* Shared press feedback for any tappable element */
+.tap { transition: transform var(--dur-micro) var(--ease-out); -webkit-tap-highlight-color: transparent; }
+.tap:active { transform: scale(0.98); }

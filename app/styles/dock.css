@@ -1,0 +1,27 @@
+/* Auto-hiding bottom call dock (phone only; [data-mobile] is hidden >= 880px in site.css). */
+.dock {
+  position: fixed; bottom: 0; inset-inline: 0; z-index: 60;
+  display: flex; gap: 10px;
+  padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -4px 20px rgba(40,35,25,0.08);
+  transform: none; opacity: 1;
+  transition: transform var(--dur-large) var(--ease-out), opacity var(--dur-large) var(--ease-out);
+}
+.dock[data-tucked="true"] {
+  transform: translateY(calc(100% + 24px));
+  opacity: 0; pointer-events: none;
+}
+.dock__btn {
+  flex: 1; min-height: 48px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  border-radius: 999px; font-weight: 800; font-size: 15px; text-decoration: none; color: #fff;
+}
+.dock__wa { background: var(--green); box-shadow: 0 6px 16px rgba(22,163,74,0.3); }
+.dock__call { background: var(--orange); box-shadow: 0 6px 16px rgba(245,96,61,0.3); }
+
+@media (prefers-reduced-motion: reduce) {
+  .dock, .dock[data-tucked="true"] { transform: none; transition: opacity var(--dur-micro) linear; }
+}

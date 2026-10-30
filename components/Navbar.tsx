@@ -49,11 +49,17 @@ export function Navbar({ L, scrolled, active, onLangToggle, go }: NavbarProps) {
       <header className={`navbar${scrolled ? " navbar--scrolled" : ""}`}>
         <div className="navbar__inner">
           {/* Brand */}
-          <div className="navbar__brand" onClick={() => go("home")} role="button" tabIndex={0}>
+          <div
+            className="navbar__brand"
+            onClick={() => go("home")}
+            onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go("home"); } }}
+            role="button"
+            tabIndex={0}
+          >
             <div className="navbar__logo-icon">
               <Snowflake size={20} color="#fff" />
             </div>
-            <div>
+            <div className="navbar__brand-text">
               <div className="navbar__brand-name">
                 <span>{L.brand.split(" ")[0]}</span>{" "}
                 {L.brand.split(" ").slice(1).join(" ")}

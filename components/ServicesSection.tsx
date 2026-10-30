@@ -16,7 +16,7 @@ export function ServicesSection({ L, isAr }: SiteProps) {
     <section id="services" className="section-wrap section-wrap--tint">
       <div className="section-inner">
         {/* Heading */}
-        <div style={{ textAlign: "center", marginBottom: "48px" }} data-reveal>
+        <div className="section-head" style={{ textAlign: "center" }} data-reveal>
           <span className="section-eyebrow">{L.servicesTitle}</span>
           <h2 className="section-title">{L.servicesSub}</h2>
           <div className="section-rule" />

@@ -8,7 +8,7 @@ export function BrandsSection({ L }: { L: Translations }) {
     <section className="section-wrap section-wrap--tint section-wrap--brands" aria-label={L.brandsTitle}>
       <div className="section-inner">
         {/* Heading */}
-        <div style={{ textAlign: "center", marginBottom: "34px" }} data-reveal>
+        <div className="section-head section-head--compact" style={{ textAlign: "center" }} data-reveal>
           <span className="section-eyebrow">{L.brandsEyebrow}</span>
           <h2 className="section-title section-title--compact">{L.brandsTitle}</h2>
           <div className="section-rule" />

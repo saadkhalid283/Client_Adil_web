@@ -2,10 +2,18 @@
 
 import { BadgeCheck, MessageCircle, Phone, Zap } from "lucide-react";
 import type { Translations } from "@/lib/types";
-import { wa, PHONE_PRIMARY } from "@/lib/constants";
+import { wa, PHONE_PRIMARY, RATING } from "@/lib/constants";
+import { reviewsData } from "@/lib/data";
+import { heroContent } from "@/lib/content/hero";
+import { useOpenNow } from "@/lib/use-open-now";
 
 export function Hero({ L }: { L: Translations }) {
   const isAr = L.dir === "rtl";
+  const C = isAr ? heroContent.ar : heroContent.en;
+  const open = useOpenNow();
+  const review = reviewsData[0];
+  const statusText = open === null ? L.heroEyebrow : open ? C.open : C.closed;
+  const statusState = open === null ? "pending" : open ? "open" : "closed";
 
   const stats = [
     { num: "4.8", suffix: "★", label: isAr ? "تقييم العملاء" : "Customer rating" },
@@ -29,11 +37,11 @@ export function Hero({ L }: { L: Translations }) {
       <div className="hero-inner">
         <div className="hero-grid" style={{ display: "grid" }}>
           {/* Text content */}
-          <div className="rise">
+          <div className="hero-copy">
             <div className="hero-eyebrow-row">
-              <div className="hero-eyebrow-wrap">
-                <span className="hero-eyebrow-dot" />
-                <span className="hero-eyebrow-text">{L.heroEyebrow}</span>
+              <div className="hero-eyebrow-wrap" data-state={statusState}>
+                <span className="hero-eyebrow-dot" aria-hidden="true" />
+                <span className="hero-eyebrow-text" role="status">{statusText}</span>
               </div>
               <span className="verified-badge">
                 <BadgeCheck size={15} />
@@ -51,14 +59,30 @@ export function Hero({ L }: { L: Translations }) {
             <p className="hero-sub">{L.heroSub}</p>
 
             <div className="hero-actions">
-              <a href={`tel:${PHONE_PRIMARY}`} className="btn-call" onClick={(e) => { e.preventDefault(); window.trackPhoneConversion?.(e.currentTarget.href); }}>
-                <Phone size={18} />
-                {L.heroCall}
+              <a href={`tel:${PHONE_PRIMARY}`} data-call className="hero-call tap" onClick={(e) => { e.preventDefault(); window.trackPhoneConversion?.(e.currentTarget.href); }}>
+                <Phone size={24} aria-hidden="true" />
+                <span className="hero-call__text">
+                  <span className="hero-call__label">{C.callLabel}</span>
+                  <span className="hero-call__num" dir="ltr">{PHONE_PRIMARY}</span>
+                </span>
               </a>
-              <a href={wa(L.heroMsg)} className="btn-wa" onClick={(e) => { e.preventDefault(); window.trackWhatsappConversion?.(e.currentTarget.href); }}>
-                <MessageCircle size={18} />
-                {L.heroWa}
+              <a href={wa(L.heroMsg)} className="hero-wa tap" onClick={(e) => { e.preventDefault(); window.trackWhatsappConversion?.(e.currentTarget.href); }}>
+                <MessageCircle size={18} aria-hidden="true" />
+                {C.waLabel}
               </a>
+            </div>
+            <p className="hero-micro">{C.microcopy}</p>
+
+            <div className="hero-proof">
+              <div className="hero-proof__line">
+                <strong dir="ltr">{RATING}</strong>
+                <span className="hero-proof__stars" aria-hidden="true">★★★★★</span>
+                <span>· 18 {C.ratingLine}</span>
+              </div>
+              <figure className="hero-quote">
+                <blockquote>{isAr ? review.ar : review.en}</blockquote>
+                <figcaption>{review.name}</figcaption>
+              </figure>
             </div>
 
             <div className="hero-badges">

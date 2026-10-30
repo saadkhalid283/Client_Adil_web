@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import type { PointerEvent as ReactPointerEvent } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { SiteProps } from "@/lib/site-props";
 import { galleryData } from "@/lib/data";
@@ -13,6 +14,7 @@ export function Gallery({ L, isAr }: SiteProps) {
   const [idx, setIdx] = useState(0);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pausedRef = useRef(false);
+  const dragRef = useRef<{ x: number; y: number } | null>(null);
 
   const advance = useCallback(
     (dir: 1 | -1) => {
@@ -36,11 +38,32 @@ export function Gallery({ L, isAr }: SiteProps) {
   const handlePrev = () => { advance(isAr ? 1 : -1); resetTimer(); };
   const handleNext = () => { advance(isAr ? -1 : 1); resetTimer(); };
 
+  const onPointerDown = (e: ReactPointerEvent) => {
+    pausedRef.current = true;
+    dragRef.current = { x: e.clientX, y: e.clientY };
+  };
+
+  const onPointerEnd = (e: ReactPointerEvent) => {
+    const start = dragRef.current;
+    dragRef.current = null;
+    if (e.pointerType !== "mouse") pausedRef.current = false;
+    if (!start) return;
+    const dx = e.clientX - start.x;
+    const dy = e.clientY - start.y;
+    if (e.type === "pointerup" && Math.abs(dx) >= 40 && Math.abs(dx) > Math.abs(dy)) {
+      // Swiping toward the physical right reveals the slide on the left,
+      // which is the next slide in RTL and the previous slide in LTR.
+      const towardRight = dx > 0;
+      advance(towardRight === isAr ? 1 : -1);
+    }
+    resetTimer();
+  };
+
   return (
     <section className="section-wrap section-wrap--dark">
       <div className="section-inner">
         {/* Heading */}
-        <div style={{ textAlign: "center", marginBottom: "40px" }} data-reveal>
+        <div className="section-head" style={{ textAlign: "center" }} data-reveal>
           <span className="section-eyebrow">{L.galleryEyebrow}</span>
           <h2 className="section-title">{L.galleryTitle}</h2>
           <p
@@ -63,6 +86,9 @@ export function Gallery({ L, isAr }: SiteProps) {
           data-reveal
           onMouseEnter={() => { pausedRef.current = true; }}
           onMouseLeave={() => { pausedRef.current = false; resetTimer(); }}
+          onPointerDown={onPointerDown}
+          onPointerUp={onPointerEnd}
+          onPointerCancel={onPointerEnd}
         >
           <div className="gallery-track-wrap">
             <div

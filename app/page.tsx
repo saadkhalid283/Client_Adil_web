@@ -9,6 +9,9 @@ import { ServicesSection } from "@/components/ServicesSection";
 import { BrandsSection } from "@/components/BrandsSection";
 import { WhySection } from "@/components/WhySection";
 import { HowItWorksSection } from "@/components/HowItWorksSection";
+import { StraightAnswers } from "@/components/StraightAnswers";
+import { TrustAndArea } from "@/components/TrustCard";
+import { FaqSection } from "@/components/FaqSection";
 import { Gallery } from "@/components/Gallery";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { ContactSection } from "@/components/ContactSection";
@@ -95,8 +98,11 @@ export default function Home() {
         <BrandsSection L={L} />
         <WhySection {...siteProps} />
         <HowItWorksSection L={L} />
+        <StraightAnswers isAr={isAr} />
         <Gallery {...siteProps} />
         <ReviewsSection {...siteProps} />
+        <TrustAndArea L={L} isAr={isAr} />
+        <FaqSection {...siteProps} />
         <ContactSection {...siteProps} />
         <CtaSection L={L} />
       </main>

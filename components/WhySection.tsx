@@ -10,7 +10,7 @@ export function WhySection({ L, isAr }: SiteProps) {
     <section id="why" className="section-wrap section-wrap--dark">
       <div className="section-inner">
         {/* Heading */}
-        <div style={{ textAlign: "center", marginBottom: "52px" }} data-reveal>
+        <div className="section-head" style={{ textAlign: "center" }} data-reveal>
           <span className="section-eyebrow">{L.whyTitle}</span>
           <h2 className="section-title">{L.whySub}</h2>
           <div className="section-rule" />

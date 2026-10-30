@@ -1,0 +1,93 @@
+/* reviews: mobile first. Carousel on phone, 3-column grid from 880px. */
+.section-wrap.reviews { padding: 56px 0; }
+.reviews__head { text-align: center; margin-bottom: 28px; padding-inline: 16px; }
+
+.reviews .rating-banner {
+  margin: 0 16px 28px; padding: 18px 16px; gap: 12px;
+}
+.rating-banner__divider { width: 1px; height: 40px; background: rgba(255, 255, 255, 0.18); margin-inline: 4px; }
+.rating-banner__starrow { display: flex; gap: 4px; margin-bottom: 4px; }
+
+.rev-track {
+  list-style: none; margin: 0; padding: 4px 16px 8px;
+  display: flex; gap: 12px;
+  overflow-x: auto; overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 16px;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.rev-track::-webkit-scrollbar { display: none; }
+.rev-track:focus-visible { outline: 3px solid var(--teal); outline-offset: -3px; border-radius: var(--radius-card); }
+
+.reviews .rev-card {
+  flex: 0 0 86%; scroll-snap-align: start; scroll-snap-stop: always;
+  padding: 22px 18px; min-width: 0;
+}
+.reviews .rev-card:hover { transform: none; box-shadow: none; border-color: var(--line); }
+.reviews .rev-text { font-size: 15px; }
+
+/* Controls */
+.rev-controls {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin-top: 12px; padding-inline: 16px;
+}
+.rev-meta { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.rev-counter {
+  font-family: var(--display); font-size: 13px; font-weight: 800;
+  color: var(--ink-2); letter-spacing: 0.04em; font-variant-numeric: tabular-nums;
+}
+.rev-dots { display: flex; align-items: center; }
+.rev-dot {
+  position: relative; width: 44px; height: 44px; padding: 0; border: 0; background: none;
+  cursor: pointer; -webkit-tap-highlight-color: transparent;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.rev-dot::before {
+  content: ""; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--line); border: 1.5px solid var(--teal-border);
+  transition: transform var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
+}
+.rev-dot[aria-current="true"]::before { background: var(--teal); border-color: var(--teal); transform: scale(1.4); }
+.rev-dot:focus-visible, .rev-nav:focus-visible { outline: 3px solid var(--teal); outline-offset: 0; border-radius: 12px; }
+
+/* prev/next only from 760px */
+.rev-nav {
+  display: none; width: 44px; height: 44px; border-radius: 50%;
+  align-items: center; justify-content: center; cursor: pointer;
+  background: var(--surface); color: var(--teal); border: 2px solid var(--teal-border);
+  transition: opacity var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out);
+}
+.rev-nav:disabled { opacity: 0.35; cursor: default; }
+
+/* Six 44px dots = 264px, fits a 320px screen */
+@media (min-width: 640px) {
+  .section-wrap.reviews { padding: 80px 0; }
+  .rev-track { padding-inline: 20px; scroll-padding-inline: 20px; }
+  .reviews .rev-card { flex-basis: 56%; padding: 26px 22px; }
+  .reviews .rating-banner { margin-inline: 20px; padding: 22px 30px; }
+  .reviews__head { padding-inline: 20px; }
+}
+@media (min-width: 760px) {
+  .rev-nav { display: inline-flex; }
+  .rev-controls { gap: 16px; }
+}
+
+/* 880px up: same markup becomes the grid */
+@media (min-width: 880px) {
+  .reviews .section-inner { padding-inline: 20px; }
+  .reviews .rating-banner, .reviews__head { margin-inline: 0; padding-inline: 0; }
+  .reviews .rating-banner { padding: 22px 30px; margin-bottom: 44px; }
+  .rev-track {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    overflow: visible; padding: 0; scroll-snap-type: none;
+  }
+  .reviews .rev-card { flex: none; padding: 28px 24px; }
+  .reviews .rev-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--teal-border); }
+  .rev-controls { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reviews .rev-card:hover { transform: none; }
+}

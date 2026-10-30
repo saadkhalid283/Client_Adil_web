@@ -1,2 +1,10 @@
 @import "tailwindcss";
 @import "./site.css";
+@import "./styles/tokens.css";
+@import "./styles/hero.css";
+@import "./styles/dock.css";
+@import "./styles/process.css";
+@import "./styles/trust.css";
+@import "./styles/reviews.css";
+@import "./styles/faq.css";
+@import "./styles/mobile.css";
