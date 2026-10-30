@@ -1,16 +1,16 @@
 "use client";
 
-import { Banknote, CreditCard, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import type { Translations } from "@/lib/types";
 import { trustCopy } from "@/lib/content/trust";
-import { ServiceAreaSection } from "./ServiceAreaSection";
 
 interface TrustProps {
   L: Translations;
   isAr: boolean;
 }
 
-function TrustCard({ isAr }: TrustProps) {
+/** "Check us before you call" fact card: who runs it, hours, area, rating. */
+export function TrustCard({ isAr }: TrustProps) {
   const c = isAr ? trustCopy.ar : trustCopy.en;
   return (
     <div className="trust-card" data-reveal>
@@ -39,27 +39,7 @@ function TrustCard({ isAr }: TrustProps) {
             <bdi className="trust-rating">{c.ratingValue}</bdi>
           </dd>
         </div>
-        <div className="trust-row">
-          <dt>{c.payment}</dt>
-          <dd>
-            <ul className="trust-pay">
-              <li className="trust-pay-chip"><Banknote size={16} aria-hidden="true" />{c.cash}</li>
-              <li className="trust-pay-chip"><CreditCard size={16} aria-hidden="true" />{c.mada}</li>
-            </ul>
-          </dd>
-        </div>
       </dl>
     </div>
-  );
-}
-
-export function TrustAndArea({ L, isAr }: TrustProps) {
-  return (
-    <section id="about" className="section-wrap section-wrap--tint trust-sec">
-      <div className="section-inner trust-grid" data-stagger>
-        <TrustCard L={L} isAr={isAr} />
-        <ServiceAreaSection isAr={isAr} />
-      </div>
-    </section>
   );
 }

@@ -23,18 +23,6 @@ export interface TrustCopy {
   rating: string;
   ratingValue: string;
   ratingNote: string;
-  payment: string;
-  cash: string;
-  mada: string;
-}
-
-export interface AreaCopy {
-  title: string;
-  places: string[];
-  city: string;
-  question: string;
-  cta: string;
-  waMsg: string;
 }
 
 export const straightAnswers: Bilingual<StraightAnswersCopy> = {
@@ -54,7 +42,7 @@ export const straightAnswers: Bilingual<StraightAnswersCopy> = {
     know: [
       "نخبرك بالسعر قبل أن نبدأ، فالقرار لك قبل أي عمل",
       "بعض الأعطال تحتاج قطعة جديدة، ونخبرك بذلك أولاً",
-      "نخدم أبحر الجنوبية والبساتين، وللمناطق الأخرى راسلنا أولاً",
+      "نخدم جميع أنحاء جدة، فراسلنا بموقعك أولاً لنؤكد معك موعد الوصول",
     ],
   },
   en: {
@@ -73,7 +61,7 @@ export const straightAnswers: Bilingual<StraightAnswersCopy> = {
     know: [
       "We tell you the price before we start, so you decide before any work happens",
       "Some faults need a new part, and we tell you first",
-      "We serve Abhar Al-Janubiyah and Al-Basatin. For other areas, message us first",
+      "We cover all of Jeddah. Message us your location first so we can confirm timing",
     ],
   },
 };
@@ -86,13 +74,10 @@ export const trustCopy: Bilingual<TrustCopy> = {
     hours: "ساعات العمل",
     hoursValue: "يومياً من ٨:٠٠ صباحاً حتى منتصف الليل",
     area: "منطقة الخدمة",
-    areaValue: "أبحر الجنوبية والبساتين، جدة",
+    areaValue: "جميع أنحاء جدة",
     rating: "التقييم",
     ratingValue: "٤٫٨ من ١٨ تقييماً",
     ratingNote: "تقييم العملاء",
-    payment: "الدفع",
-    cash: "نقداً",
-    mada: "مدى",
   },
   en: {
     title: "Check us before you call",
@@ -101,31 +86,9 @@ export const trustCopy: Bilingual<TrustCopy> = {
     hours: "Hours",
     hoursValue: "Daily, 8:00 am to midnight",
     area: "Area",
-    areaValue: "Abhar Al-Janubiyah and Al-Basatin, Jeddah",
+    areaValue: "All of Jeddah",
     rating: "Rating",
     ratingValue: "4.8 from 18 ratings",
     ratingNote: "Customer rating",
-    payment: "Payment",
-    cash: "Cash",
-    mada: "Mada",
-  },
-};
-
-export const areaCopy: Bilingual<AreaCopy> = {
-  ar: {
-    title: "أين نعمل",
-    places: ["أبحر الجنوبية", "البساتين"],
-    city: "جدة",
-    question: "لست متأكداً أننا نغطي منطقتك؟ راسلنا بموقعك أولاً.",
-    cta: "أرسل موقعك على واتساب",
-    waMsg: "مرحباً عادل، هل تخدمون منطقتي؟ موقعي: ",
-  },
-  en: {
-    title: "Where we work",
-    places: ["Abhar Al-Janubiyah", "Al-Basatin"],
-    city: "Jeddah",
-    question: "Not sure we cover you? Message us your location first.",
-    cta: "Send your location on WhatsApp",
-    waMsg: "Hi Adel, do you cover my area? My location: ",
   },
 };

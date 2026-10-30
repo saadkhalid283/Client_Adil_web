@@ -1,17 +1,17 @@
-/* trust: StraightAnswers + TrustAndArea, mobile-first */
+/* trust: StraightAnswers + TrustCard, mobile-first */
 .section-wrap.straight-sec { padding: 56px 16px; }
 .trust-head { text-align: center; margin-bottom: 28px; }
 
 .straight-grid { display: grid; gap: 16px; }
 .straight-card {
-  background: #fff; border: 1.5px solid var(--line);
-  border-radius: var(--radius-card); padding: 20px 18px; box-shadow: var(--shadow-xs);
+  background: var(--surface); border: 1.5px solid var(--line);
+  padding: 20px 18px; box-shadow: var(--shadow-xs);
 }
 .straight-title { margin: 0 0 14px; font-family: var(--display); font-size: 18px; font-weight: 800; color: var(--ink); }
 .straight-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
 .straight-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; line-height: 1.65; color: var(--ink-2); }
 .straight-icon {
-  flex: none; width: 24px; height: 24px; border-radius: 50%;
+  flex: none; width: 24px; height: 24px;
   display: grid; place-items: center; margin-top: 1px;
 }
 .straight-icon--ok { background: rgba(22, 163, 74, 0.12); color: var(--green); }
@@ -19,9 +19,10 @@
 
 .section-wrap.trust-sec { padding: 56px 16px; }
 .trust-grid { display: grid; gap: 16px; }
-.trust-card, .area-card {
-  background: #fff; border: 1.5px solid var(--line);
-  border-radius: var(--radius-card); padding: 20px 18px; box-shadow: var(--shadow-sm);
+.trust-card { max-width: 640px; margin-inline: auto; width: 100%; }
+.trust-card {
+  background: var(--surface); border: 1.5px solid var(--line);
+  padding: 20px 18px; box-shadow: var(--shadow-sm);
 }
 .trust-card-title { margin: 0 0 12px; font-family: var(--display); font-size: 19px; font-weight: 800; color: var(--ink); }
 
@@ -32,36 +33,14 @@
 .trust-row dd { margin: 0; font-size: 15px; font-weight: 700; color: var(--ink); line-height: 1.6; display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
 .trust-stars { display: inline-flex; gap: 2px; color: #f5a623; }
 .trust-rating { font-weight: 800; }
-.trust-pay { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.trust-pay-chip {
-  display: inline-flex; align-items: center; gap: 6px; min-height: 36px;
-  padding: 0 14px; border-radius: 999px; font-size: 14px; font-weight: 700;
-  background: var(--teal-soft); border: 1.5px solid var(--teal-border); color: var(--teal);
-}
-
-.area-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.area-chip {
-  display: inline-flex; align-items: center; gap: 6px; min-height: 44px;
-  padding: 0 16px; border-radius: 999px; font-size: 15px; font-weight: 700;
-  background: var(--teal-soft); border: 1.5px solid var(--teal-border); color: var(--teal);
-}
-.area-city { margin: 10px 0 0; font-size: 13px; font-weight: 700; color: var(--muted); }
-.area-note { margin: 16px 0 14px; font-size: 15px; line-height: 1.7; color: var(--ink-2); }
-.area-link {
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  min-height: 48px; padding: 0 20px; border-radius: 999px;
-  background: var(--green); color: #fff; font-size: 15px; font-weight: 800; text-decoration: none;
-}
 
 @media (min-width: 760px) {
   .straight-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
   .straight-card { padding: 26px 24px; }
-  .area-link { display: inline-flex; }
 }
 
 @media (min-width: 880px) {
   .section-wrap.straight-sec, .section-wrap.trust-sec { padding: 80px 20px; }
   .trust-head { margin-bottom: 40px; }
-  .trust-grid { grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
-  .trust-card, .area-card { padding: 28px 26px; }
+  .trust-card { padding: 28px 26px; }
 }

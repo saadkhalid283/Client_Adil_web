@@ -32,7 +32,7 @@ export const faqContent: Record<Lang, FaqCopy> = {
       },
       {
         q: "ما هي المناطق التي تخدمونها؟",
-        a: "نخدم أبحر الجنوبية وحي البساتين في جدة.",
+        a: "نخدم جميع أنحاء جدة. راسلنا بموقعك على واتساب أولاً لنؤكد معك موعد الوصول.",
       },
       {
         q: "ما هي الأجهزة التي تصلحونها؟",
@@ -45,10 +45,6 @@ export const faqContent: Record<Lang, FaqCopy> = {
       {
         q: "كيف أحجز موعداً؟",
         a: "اتصل بنا أو راسلنا على واتساب، واضغط على أزرار الاتصال أو واتساب في الموقع. أخبرنا بالمشكلة ونرتب معك الموعد.",
-      },
-      {
-        q: "ما هي طرق الدفع؟",
-        a: "نقبل الدفع نقداً أو عبر مدى.",
       },
       {
         q: "هل تستبدلون قطعاً بدون حاجة؟",
@@ -73,7 +69,7 @@ export const faqContent: Record<Lang, FaqCopy> = {
       },
       {
         q: "Which areas do you cover?",
-        a: "We serve Abhar Al-Janubiyah and Al-Basatin in Jeddah.",
+        a: "We cover all of Jeddah. Message us your location on WhatsApp first so we can confirm timing with you.",
       },
       {
         q: "Which appliances do you repair?",
@@ -86,10 +82,6 @@ export const faqContent: Record<Lang, FaqCopy> = {
       {
         q: "How do I book?",
         a: "Call us or message us on WhatsApp using the call and WhatsApp buttons on this site. Tell us the problem and we will arrange a time with you.",
-      },
-      {
-        q: "What payment methods do you accept?",
-        a: "Cash or Mada.",
       },
       {
         q: "Do you replace parts you do not need to?",

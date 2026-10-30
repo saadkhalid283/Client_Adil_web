@@ -1,11 +1,12 @@
 "use client";
 
-import { BadgeCheck, MessageCircle, Phone, Zap } from "lucide-react";
+import { BadgeCheck, Phone, Zap } from "lucide-react";
 import type { Translations } from "@/lib/types";
 import { wa, PHONE_PRIMARY, RATING } from "@/lib/constants";
 import { reviewsData } from "@/lib/data";
 import { heroContent } from "@/lib/content/hero";
 import { useOpenNow } from "@/lib/use-open-now";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 export function Hero({ L }: { L: Translations }) {
   const isAr = L.dir === "rtl";
@@ -67,7 +68,7 @@ export function Hero({ L }: { L: Translations }) {
                 </span>
               </a>
               <a href={wa(L.heroMsg)} className="hero-wa tap" onClick={(e) => { e.preventDefault(); window.trackWhatsappConversion?.(e.currentTarget.href); }}>
-                <MessageCircle size={18} aria-hidden="true" />
+                <WhatsAppIcon size={20} />
                 {C.waLabel}
               </a>
             </div>
@@ -107,41 +108,39 @@ export function Hero({ L }: { L: Translations }) {
                 style={{ width: "100%", maxWidth: "340px" }}
                 aria-hidden="true"
               >
-                {/* Soft backdrop circle */}
-                <circle cx="180" cy="120" r="120" fill="#eef0ff" />
+                {/* Backdrop */}
+                <rect x="60" y="0" width="240" height="240" className="hero-svg-bg" />
 
                 {/* AC unit body */}
-                <rect x="44" y="48" width="272" height="100" rx="18" fill="#ffffff" stroke="#4f46e5" strokeWidth="2.5" />
-                <rect x="44" y="48" width="272" height="100" rx="18" fill="url(#acFade)" opacity="0.5" />
+                <rect x="44" y="48" width="272" height="100" className="hero-svg-body" strokeWidth="2.5" />
 
                 {/* Display panel */}
-                <rect x="62" y="66" width="88" height="50" rx="10" fill="#4f46e5" />
+                <rect x="62" y="66" width="88" height="50" className="hero-svg-brand" />
                 <text x="106" y="98" fill="#ffffff" fontSize="20" fontWeight="800" textAnchor="middle" fontFamily="system-ui, sans-serif">22°C</text>
 
                 {/* Power light */}
-                <circle cx="170" cy="80" r="7" fill="#f5603d" />
+                <rect x="164" y="74" width="12" height="12" className="hero-svg-coral" />
 
                 {/* Vent louvres */}
-                {[104, 118, 132].map((y, i) => (
-                  <line key={i} x1="170" y1={y} x2="300" y2={y} stroke="#c7c2f5" strokeWidth="3" strokeLinecap="round" />
+                {[104, 118, 132].map((y) => (
+                  <line key={y} x1="170" y1={y} x2="300" y2={y} className="hero-svg-louvre" strokeWidth="3" />
                 ))}
 
                 {/* Cold air streams */}
                 {[120, 160, 200, 240].map((x, i) => (
                   <path
-                    key={i}
+                    key={x}
                     d={`M ${x} 162 C ${x + 14} 178, ${x - 6} 194, ${x + 14} 210`}
-                    stroke="#6366f1"
+                    className="hero-svg-air"
                     strokeWidth="2.5"
                     fill="none"
-                    strokeLinecap="round"
                     strokeDasharray="2,8"
                     opacity={0.8 - i * 0.12}
                   />
                 ))}
 
                 {/* Snowflakes */}
-                <g stroke="#6366f1" strokeWidth="2" strokeLinecap="round" opacity="0.75">
+                <g className="hero-svg-air" strokeWidth="2" opacity="0.75">
                   <g transform="translate(150 196)">
                     <line x1="-7" y1="0" x2="7" y2="0" /><line x1="0" y1="-7" x2="0" y2="7" />
                     <line x1="-5" y1="-5" x2="5" y2="5" /><line x1="-5" y1="5" x2="5" y2="-5" />
@@ -152,33 +151,25 @@ export function Hero({ L }: { L: Translations }) {
                   </g>
                 </g>
 
-                {/* Technician badge — wrench in coral disc */}
-                <circle cx="286" cy="206" r="40" fill="#f5603d" />
-                <circle cx="286" cy="206" r="40" fill="none" stroke="#ffffff" strokeWidth="3" opacity="0.5" />
-                <g transform="translate(286 206) rotate(45)" stroke="#ffffff" strokeWidth="5" strokeLinecap="round" fill="none">
-                  <path d="M -3 -16 a 9 9 0 1 0 9 9 L 6 14 a 5 5 0 0 1 -10 0 L -4 -7 a 9 9 0 0 0 1 -9 Z" fill="#ffffff" stroke="none" />
+                {/* Technician badge: wrench on a coral square */}
+                <rect x="250" y="170" width="72" height="72" className="hero-svg-coral" />
+                <g transform="translate(286 206) rotate(45)">
+                  <path d="M -3 -16 a 9 9 0 1 0 9 9 L 6 14 a 5 5 0 0 1 -10 0 L -4 -7 a 9 9 0 0 0 1 -9 Z" fill="#ffffff" />
                 </g>
-
-                <defs>
-                  <linearGradient id="acFade" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stopColor="#eef0ff" />
-                    <stop offset="1" stopColor="#ffffff" />
-                  </linearGradient>
-                </defs>
               </svg>
             </div>
 
             <div className="hero-float-fast">
-              <Zap size={16} color="#fb7a5a" />
+              <Zap size={16} color="var(--orange)" aria-hidden="true" />
               <span>{L.badges[0]}</span>
             </div>
           </div>
         </div>
 
         {/* Stat strip */}
-        <div className="hero-stats rise" data-reveal>
-          {stats.map((s, i) => (
-            <div key={i} className="hero-stat">
+        <div className="hero-stats" data-stagger>
+          {stats.map((s) => (
+            <div key={s.label} className="hero-stat" data-reveal>
               <div className="hero-stat__num">
                 {s.num}<span>{s.suffix}</span>
               </div>

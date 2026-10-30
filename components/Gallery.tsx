@@ -126,7 +126,6 @@ export function Gallery({ L, isAr }: SiteProps) {
                           style={{
                             width: 6,
                             height: 6,
-                            borderRadius: "50%",
                             background: slide.accentColor,
                             display: "inline-block",
                           }}

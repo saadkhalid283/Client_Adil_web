@@ -1,0 +1,14 @@
+/* ════ Inner-page banner (mobile-first) ════ */
+.page-hero { padding: calc(var(--sp-12) + 70px) var(--gutter) var(--sp-8); background: var(--paper); border-bottom: 1px solid var(--line); }
+.page-hero__inner { max-width: 1180px; margin: 0 auto; }
+.crumbs ol { display: flex; flex-wrap: wrap; gap: var(--sp-2); list-style: none; margin: 0 0 var(--sp-5); padding: 0; font-size: 13px; font-weight: 700; color: var(--muted); }
+.crumbs li + li::before { content: "/"; margin-inline-end: var(--sp-2); color: var(--muted-2); }
+.crumbs a { color: var(--muted); text-decoration: none; display: inline-flex; align-items: center; min-height: var(--tap-min); }
+.crumbs a:hover { color: var(--teal); }
+.crumbs [aria-current] { color: var(--ink); }
+.page-hero__eyebrow { margin-bottom: var(--sp-4); }
+.page-hero__title { font-family: var(--display); font-size: clamp(30px, 8vw, 54px); font-weight: 800; line-height: 1.12; letter-spacing: -0.01em; color: var(--ink); margin: 0 0 var(--sp-4); overflow-wrap: anywhere; }
+.page-hero__sub { font-size: 16px; line-height: 1.7; color: var(--muted); font-weight: 500; max-width: 62ch; margin: 0 0 var(--sp-4); }
+@media (min-width: 880px) {
+  .page-hero { padding: calc(var(--sp-16) + 100px) 40px var(--sp-12); }
+}

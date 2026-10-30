@@ -10,14 +10,14 @@
 .process-line {
   position: absolute; pointer-events: none;
   inset-inline-start: 21px; top: 22px; bottom: 22px; width: 2px;
-  background: var(--teal-3); border-radius: 2px;
+  background: var(--teal-3);
   transform-origin: top center;
 }
 .process-step {
   position: relative; display: flex; align-items: flex-start; gap: 14px;
 }
 .process-node {
-  flex: none; width: 44px; height: 44px; border-radius: 50%;
+  flex: none; width: 44px; height: 44px;
   display: grid; place-items: center;
   background: var(--teal); color: #fff;
   font-family: var(--display); font-size: 18px; font-weight: 800;
@@ -26,8 +26,8 @@
 }
 .process-card {
   flex: 1; min-width: 0;
-  background: #fff; border: 1.5px solid var(--line);
-  border-radius: var(--radius-card); padding: 16px 16px 18px;
+  background: var(--surface); border: 1.5px solid var(--line);
+  padding: 16px 16px 18px;
   box-shadow: var(--shadow-xs);
 }
 .process-title { margin: 0; font-family: var(--display); font-size: 17px; font-weight: 800; color: var(--ink); line-height: 1.3; }
@@ -63,4 +63,51 @@
   .reveal-on .process-node { transition: none !important; transition-delay: 0s !important; }
   .reveal-on .process-line { transform: none !important; }
   .reveal-on .process-node { opacity: 1 !important; transform: none !important; }
+}
+
+/* ════ Home: services grid cards (linked, square, mobile-first) ════ */
+.svc-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+.svc-cell { display: flex; }
+.svc-card--link {
+  flex: 1; text-decoration: none; color: inherit; min-height: 44px;
+  padding: 20px 18px; gap: 12px;
+}
+.svc-card.svc-card--link:hover { transform: none; box-shadow: none; border-color: var(--teal-border); }
+.svc-card--link .svc-title { font-size: 18px; }
+.svc-card--link .svc-desc { font-size: 15px; }
+.svc-card--link .svc-cta { font-size: 14.5px; min-height: 44px; align-items: center; }
+.svc-card--link:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+.svc-cta__arrow { transition: transform var(--dur-std) var(--ease-out); }
+@media (hover: hover) {
+  .svc-card.svc-card--link.lift:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .svc-card--link:hover .svc-cta__arrow { transform: translateX(4px); }
+  [dir="rtl"] .svc-card--link:hover .svc-cta__arrow { transform: translateX(-4px); }
+}
+.svc-all { margin-top: 28px; text-align: center; }
+.svc-all__link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
+  font-size: 16px; font-weight: 800; color: var(--teal); text-decoration: none;
+}
+.svc-all__link:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+
+@media (min-width: 640px) {
+  .svc-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+}
+@media (min-width: 960px) {
+  .svc-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .svc-card--link { padding: 26px 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .svc-card.svc-card--link.lift:hover, .svc-card--link:hover .svc-cta__arrow { transform: none; }
+}
+
+/* Why cards: wrapper owns the reveal, inner card owns the hover lift */
+.why-cell { display: flex; }
+.why-cell > .why-card { flex: 1; }
+.why-card.lift:hover { transform: none; }
+@media (hover: hover) {
+  .why-card.lift:hover { transform: translateY(-4px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .why-card.lift:hover { transform: none; }
 }

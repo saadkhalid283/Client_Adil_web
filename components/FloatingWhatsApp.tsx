@@ -1,6 +1,6 @@
 "use client";
 
-import { MessageCircle } from "lucide-react";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import type { Translations } from "@/lib/types";
 import { wa } from "@/lib/constants";
 
@@ -14,7 +14,7 @@ export function FloatingWhatsApp({ L }: { L: Translations }) {
       title={L.waBtn}
       onClick={(e) => { e.preventDefault(); window.trackWhatsappConversion?.(e.currentTarget.href); }}
     >
-      <MessageCircle size={28} />
+      <WhatsAppIcon size={28} />
     </a>
   );
 }

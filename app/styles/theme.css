@@ -1,0 +1,55 @@
+/* ════ Sharp-edge system: no rounded corners anywhere ════ */
+:root {
+  --radius-card: 0;
+  --radius-btn: 0;
+  --radius-icon: 0;
+  color-scheme: light;
+}
+*, *::before, *::after { border-radius: 0 !important; }
+
+/* ════ Dark theme: same indigo + coral identity on deep ink ════ */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --teal: #6366f1;
+  --teal-2: #818cf8;
+  --teal-3: #a5b4fc;
+  --teal-soft: rgba(129, 140, 248, 0.14);
+  --teal-border: rgba(129, 140, 248, 0.32);
+  --orange-soft: rgba(245, 96, 61, 0.16);
+  --orange-border: rgba(245, 96, 61, 0.36);
+
+  --slate: #0b0a14;
+  --slate-2: #14132a;
+  --slate-3: #232245;
+
+  --ink: #f3f2fa;
+  --ink-2: #d4d2e6;
+  --muted: #a3a1b8;
+  --muted-2: #7c7a94;
+
+  --paper: #11101b;
+  --tint: #11101b;
+  --tint-2: #1a1928;
+  --surface: #191829;
+  --line: #2c2b45;
+  --line-2: rgba(255, 255, 255, 0.08);
+
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 3px 14px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 10px 34px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* Dark mode: indigo used as TEXT must be the lighter tint to stay readable (>= 4.5:1) */
+:root[data-theme="dark"] .section-eyebrow,
+:root[data-theme="dark"] .svc-cta,
+:root[data-theme="dark"] .svc-all__link,
+:root[data-theme="dark"] .rev-guide,
+:root[data-theme="dark"] .svcp-card__more,
+:root[data-theme="dark"] .svcp-link,
+:root[data-theme="dark"] .pg-work__link,
+:root[data-theme="dark"] .crumbs a:hover { color: var(--teal-3); }
+:root[data-theme="dark"] .sendloc__btn { color: #4ade80; }
+
+/* WhatsApp green: slightly deeper so white labels pass contrast (5:1) in both themes */
+:root { --green: #15803d; --green-2: #166534; }

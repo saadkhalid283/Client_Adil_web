@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { MessageCircle, Phone } from "lucide-react";
+import { Phone } from "lucide-react";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import type { Translations } from "@/lib/types";
 import { wa, PHONE_PRIMARY } from "@/lib/constants";
 import { heroContent } from "@/lib/content/hero";
@@ -47,9 +48,9 @@ export function MobileCtaBar({ L }: { L: Translations }) {
   }, []);
 
   return (
-    <div className="dock" data-mobile data-tucked={tucked} aria-hidden={tucked} inert={tucked}>
+    <div className="dock dock--v2" data-mobile data-tucked={tucked} aria-hidden={tucked} inert={tucked}>
       <a href={wa(L.floatMsg)} className="dock__btn dock__wa tap" onClick={(e) => { e.preventDefault(); window.trackWhatsappConversion?.(e.currentTarget.href); }}>
-        <MessageCircle size={20} aria-hidden="true" />
+        <WhatsAppIcon size={20} />
         {C.dockWa}
       </a>
       <a href={`tel:${PHONE_PRIMARY}`} className="dock__btn dock__call tap" onClick={(e) => { e.preventDefault(); window.trackPhoneConversion?.(e.currentTarget.href); }}>

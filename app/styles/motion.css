@@ -1,0 +1,29 @@
+/* ════ Shared motion utilities (transform/opacity only, tokens from tokens.css) ════ */
+
+/* Section rule draws in when its section reveals */
+.reveal-on [data-reveal] .section-rule { transform: scaleX(0); transform-origin: left center; transition: transform var(--dur-hero) var(--ease-out) 120ms; }
+.reveal-on [data-reveal].is-visible .section-rule { transform: scaleX(1); }
+[dir="rtl"] .reveal-on [data-reveal] .section-rule { transform-origin: right center; }
+
+/* Hover-capable devices only: lift cards 4px, never on touch */
+@media (hover: hover) {
+  .lift { transition: transform var(--dur-std) var(--ease-out); }
+  .lift:hover { transform: translateY(-4px); }
+}
+
+/* Underline slide for text links */
+.u-link { position: relative; }
+.u-link::after { content: ""; position: absolute; inset-inline: 0; bottom: -2px; height: 2px; background: currentColor; transform: scaleX(0); transform-origin: left center; transition: transform var(--dur-std) var(--ease-out); }
+[dir="rtl"] .u-link::after { transform-origin: right center; }
+.u-link:hover::after, .u-link:focus-visible::after { transform: scaleX(1); }
+
+/* Page enter (keyed per route by the shell) */
+@keyframes page-enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.page-enter { animation: page-enter var(--dur-large) var(--ease-out) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on [data-reveal] .section-rule, .reveal-on [data-reveal].is-visible .section-rule { transform: none !important; transition: none !important; }
+  .page-enter { animation: none; }
+  .lift:hover { transform: none; }
+  .u-link::after { transition: none; }
+}

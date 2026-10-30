@@ -108,7 +108,7 @@ export function ReviewsSection({ L, isAr }: SiteProps) {
             {reviewsData.map((rev, i) => {
               const text = isAr ? rev.ar : rev.en;
               return (
-                <li key={rev.name} className="rev-card" aria-label={label(i)}>
+                <li key={rev.name} className="rev-card lift" aria-label={label(i)}>
                   <div className="rev-quote" aria-hidden="true">&quot;</div>
                   <div className="rev-stars" role="img" aria-label={isAr ? `${rev.stars} من 5 نجوم` : `${rev.stars} out of 5 stars`}>
                     {"★".repeat(rev.stars)}

@@ -1,121 +1,106 @@
 "use client";
 
-import { Phone, MapPin, Clock, MessageCircle, Navigation } from "lucide-react";
+import { Phone, MapPin, Clock, Navigation } from "lucide-react";
 import type { SiteProps } from "@/lib/site-props";
 import { SendLocationButton } from "./SendLocationButton";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 import { wa, PHONE_PRIMARY, MAP_SRC, DIRECTIONS_LINK } from "@/lib/constants";
+import { contactCopy } from "@/lib/content/pages";
 
-export function ContactSection({ L, isAr }: SiteProps) {
+export function ContactSection({ L, isAr, compact }: SiteProps & { compact?: boolean }) {
+  const copy = isAr ? contactCopy.ar : contactCopy.en;
   return (
-    <section id="contact" className="section-wrap">
+    <section id="contact" className="section-wrap pg-contact">
       <div className="section-inner">
-        {/* Heading */}
-        <div className="section-head" data-reveal>
-          <span className="section-eyebrow section-eyebrow--orange">{L.contactTitle}</span>
-          <h2 className="section-title">{L.contactSub}</h2>
-          <div className="section-rule section-rule--orange section-rule--left" style={{ marginTop: "16px" }} />
-        </div>
+        {compact ? null : (
+          <div className="section-head" data-reveal>
+            <span className="section-eyebrow section-eyebrow--orange">{L.contactTitle}</span>
+            <h2 className="section-title">{L.contactSub}</h2>
+            <div className="section-rule section-rule--orange section-rule--left" />
+          </div>
+        )}
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: "32px",
-            alignItems: "start",
-          }}
-          data-grid="contact"
-        >
-          {/* Left: Info cards */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "14px" }} data-reveal>
-            {/* Primary phone */}
+        <div className="pg-contact__grid" data-grid="contact">
+          <div className="pg-contact__col" data-reveal>
             <div className="contact-card">
-              <div
-                className="contact-icon-wrap"
-                style={{ background: "var(--orange-soft)", border: "1.5px solid var(--orange-border)" }}
-              >
-                <Phone size={20} color="var(--orange)" />
+              <div className="contact-icon-wrap pg-contact__icon pg-contact__icon--orange">
+                <Phone size={20} aria-hidden="true" />
               </div>
               <div>
                 <div className="contact-label">{L.primaryLine}</div>
-                <a className="contact-value contact-value--link" data-call href={`tel:${PHONE_PRIMARY}`}>
+                <a
+                  className="contact-value contact-value--link"
+                  data-call
+                  href={`tel:${PHONE_PRIMARY}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.trackPhoneConversion?.(e.currentTarget.href);
+                  }}
+                >
                   {PHONE_PRIMARY}
                 </a>
                 <div className="contact-sub">{L.callUs}</div>
               </div>
             </div>
 
-            {/* Address */}
             <div className="contact-card">
-              <div
-                className="contact-icon-wrap"
-                style={{ background: "var(--teal-soft)", border: "1.5px solid var(--teal-border)" }}
-              >
-                <MapPin size={20} color="var(--teal)" />
+              <div className="contact-icon-wrap pg-contact__icon pg-contact__icon--teal">
+                <MapPin size={20} aria-hidden="true" />
               </div>
               <div>
                 <div className="contact-label">{L.addressLabel}</div>
-                <div className="contact-value" style={{ cursor: "default" }}>{L.address}</div>
+                <div className="contact-value">{L.address}</div>
               </div>
             </div>
 
-            {/* Hours */}
             <div className="contact-card">
-              <div
-                className="contact-icon-wrap"
-                style={{ background: "rgba(99,102,241,0.1)", border: "1.5px solid rgba(99,102,241,0.2)" }}
-              >
-                <Clock size={20} color="#6366f1" />
+              <div className="contact-icon-wrap pg-contact__icon pg-contact__icon--teal">
+                <Clock size={20} aria-hidden="true" />
               </div>
               <div>
                 <div className="contact-label">{L.hoursLabel}</div>
-                <div className="contact-value" style={{ cursor: "default" }}>{L.hours}</div>
+                <div className="contact-value">{L.hours}</div>
               </div>
             </div>
 
-            {/* WhatsApp CTA card */}
-            <a className="wa-contact-btn" data-call href={wa(L.floatMsg)} onClick={(e) => { e.preventDefault(); window.trackWhatsappConversion?.(e.currentTarget.href); }}>
-              <div
-                style={{
-                  width: 46,
-                  height: 46,
-                  borderRadius: "12px",
-                  background: "rgba(255,255,255,0.2)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                }}
-              >
-                <MessageCircle size={24} color="#fff" />
-              </div>
-              <div>
-                <div className="wa-contact-text">{L.waCard}</div>
-                <div className="wa-contact-sub">{L.waCardSub}</div>
-              </div>
+            <a
+              className="wa-contact-btn tap"
+              data-call
+              href={wa(L.floatMsg)}
+              onClick={(e) => {
+                e.preventDefault();
+                window.trackWhatsappConversion?.(e.currentTarget.href);
+              }}
+            >
+              <span className="pg-contact__wa-icon">
+                <WhatsAppIcon size={24} />
+              </span>
+              <span>
+                <span className="wa-contact-text">{L.waCard}</span>
+                <span className="wa-contact-sub">{L.waCardSub}</span>
+              </span>
             </a>
             <SendLocationButton isAr={isAr} />
           </div>
 
-          {/* Right: Map + directions */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "14px" }} data-reveal>
+          <div className="pg-contact__col" data-reveal>
             <div className="map-wrap">
               <iframe
                 src={MAP_SRC}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="موقع عادل للتبريد والتكييف"
+                title={copy.mapTitle}
               />
             </div>
             <a
               href={DIRECTIONS_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-call"
-              style={{ justifyContent: "center" }}
+              className="btn-call tap pg-contact__dir"
             >
-              <Navigation size={18} />
-              {isAr ? "احصل على الاتجاهات" : "Get Directions"}
+              <Navigation size={18} aria-hidden="true" />
+              {copy.directions}
             </a>
           </div>
         </div>

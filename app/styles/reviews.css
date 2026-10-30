@@ -19,13 +19,13 @@
   scrollbar-width: none;
 }
 .rev-track::-webkit-scrollbar { display: none; }
-.rev-track:focus-visible { outline: 3px solid var(--teal); outline-offset: -3px; border-radius: var(--radius-card); }
+.rev-track:focus-visible { outline: 3px solid var(--teal); outline-offset: -3px; }
 
 .reviews .rev-card {
   flex: 0 0 86%; scroll-snap-align: start; scroll-snap-stop: always;
   padding: 22px 18px; min-width: 0;
 }
-.reviews .rev-card:hover { transform: none; box-shadow: none; border-color: var(--line); }
+.reviews .rev-card:hover { box-shadow: none; border-color: var(--line); }
 .reviews .rev-text { font-size: 15px; }
 
 /* Controls */
@@ -45,16 +45,16 @@
   display: inline-flex; align-items: center; justify-content: center;
 }
 .rev-dot::before {
-  content: ""; width: 8px; height: 8px; border-radius: 50%;
+  content: ""; width: 8px; height: 8px;
   background: var(--line); border: 1.5px solid var(--teal-border);
   transition: transform var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
 }
 .rev-dot[aria-current="true"]::before { background: var(--teal); border-color: var(--teal); transform: scale(1.4); }
-.rev-dot:focus-visible, .rev-nav:focus-visible { outline: 3px solid var(--teal); outline-offset: 0; border-radius: 12px; }
+.rev-dot:focus-visible, .rev-nav:focus-visible { outline: 3px solid var(--teal); outline-offset: 0; }
 
 /* prev/next only from 760px */
 .rev-nav {
-  display: none; width: 44px; height: 44px; border-radius: 50%;
+  display: none; width: 44px; height: 44px;
   align-items: center; justify-content: center; cursor: pointer;
   background: var(--surface); color: var(--teal); border: 2px solid var(--teal-border);
   transition: opacity var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out);
@@ -84,10 +84,14 @@
     overflow: visible; padding: 0; scroll-snap-type: none;
   }
   .reviews .rev-card { flex: none; padding: 28px 24px; }
-  .reviews .rev-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--teal-border); }
+  .reviews .rev-card:hover { box-shadow: var(--shadow-md); border-color: var(--teal-border); }
+  .reviews .rev-card.lift:hover { transform: translateY(-4px); }
   .rev-controls { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reviews .rev-card:hover { transform: none; }
+  .reviews .rev-card.lift:hover { transform: none; }
 }
+
+/* Banner keeps a dark fill in both themes (white text on it) */
+.reviews .rating-banner { background: var(--slate); border: 1px solid var(--line); }

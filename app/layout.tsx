@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { BRANDS } from "@/lib/constants";
+import { SiteProvider } from "@/lib/site-context";
+import { SiteShell } from "@/components/shell/SiteShell";
 import "./globals.css";
 
 const GOOGLE_TAG_ID = "AW-18206895895";
@@ -12,7 +14,7 @@ const SITE_URL =
 const TITLE_AR = "عادل للتبريد والتكييف | إصلاح مكيفات وثلاجات وغسالات في جدة";
 const TITLE_EN = "Adel Cooling & AC | AC, Fridge & Washing Machine Repair in Jeddah";
 const DESC_AR =
-  "عادل للتبريد والتكييف في جدة: إصلاح مكيفات (شباك وسبليت ومركزي)، ثلاجات، غسالات أتوماتيك، وتمديد مواسير. خدمة سريعة، أسعار شفافة، وضمان على الإصلاح. أبحر الجنوبية وحي البساتين.";
+  "عادل للتبريد والتكييف في جدة: إصلاح مكيفات (شباك وسبليت ومركزي)، ثلاجات، غسالات أتوماتيك، وتمديد مواسير. خدمة سريعة، أسعار شفافة، وضمان على الإصلاح في جميع أنحاء جدة.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -27,11 +29,11 @@ export const metadata: Metadata = {
   publisher: "عادل للتبريد والتكييف",
   category: "Home Services",
   keywords: [
-    "إصلاح مكيفات جدة", "صيانة مكيفات جدة", "فني مكيفات جدة", "أبحر الجنوبية",
+    "إصلاح مكيفات جدة", "صيانة مكيفات جدة", "فني مكيفات جدة",
     "إصلاح مكيفات سبليت", "تكييف مركزي جدة", "إصلاح ثلاجات جدة",
     "إصلاح غسالات جدة", "تمديد مواسير جدة",
     "AC repair Jeddah", "fridge repair Jeddah", "washing machine repair Jeddah",
-    "عادل للتبريد والتكييف", "حي البساتين جدة",
+    "عادل للتبريد والتكييف",
   ],
   alternates: { canonical: "/" },
   openGraph: {
@@ -123,7 +125,6 @@ const jsonLd = {
       priceRange: "$$",
       knowsAbout: BRANDS,
       currenciesAccepted: "SAR",
-      paymentAccepted: "Cash, Mada",
       knowsLanguage: ["ar", "en"],
       address: {
         "@type": "PostalAddress",
@@ -134,11 +135,7 @@ const jsonLd = {
       },
       geo: { "@type": "GeoCoordinates", latitude: 21.6893272, longitude: 39.1125107 },
       hasMap: "https://www.google.com/maps/search/?api=1&query=21.68932718013044,39.112510675275004",
-      areaServed: [
-        { "@type": "City", name: "Jeddah" },
-        { "@type": "Place", name: "أبحر الجنوبية" },
-        { "@type": "Place", name: "حي البساتين" },
-      ],
+      areaServed: { "@type": "City", name: "Jeddah" },
       openingHoursSpecification: [
         {
           "@type": "OpeningHoursSpecification",
@@ -205,7 +202,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ar" dir="rtl">
+    <html lang="ar" dir="rtl" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
@@ -214,11 +211,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
         <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem("adel-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}`,
+          }}
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>
+      <body className="site-root">
         {/* Google tag (gtag.js) — GA4 / Google Ads, global on every page */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_ID}`}
@@ -251,7 +253,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             };
           `}
         </Script>
-        {children}
+        <SiteProvider>
+          <SiteShell>{children}</SiteShell>
+        </SiteProvider>
       </body>
     </html>
   );

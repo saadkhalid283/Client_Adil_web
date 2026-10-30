@@ -34,18 +34,30 @@
 .hero-actions { flex-direction: column; align-items: stretch; gap: 10px; margin-bottom: 10px; }
 .hero-call, .hero-wa {
   display: flex; align-items: center; justify-content: center; gap: 12px;
-  border-radius: 16px; text-decoration: none; font-weight: 800;
+  text-decoration: none; font-weight: 800;
 }
 .hero-call {
   min-height: 56px; padding: 10px 20px;
+  position: relative; overflow: hidden;
   background: var(--orange); color: #fff; box-shadow: var(--shadow-orange);
+}
+/* One-time "charge" sweep after load: a light bar crosses the button once */
+.hero-call::after {
+  content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 36%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.38), transparent);
+  transform: translateX(-120%); pointer-events: none;
+  animation: hero-charge var(--dur-hero) var(--ease-out) 900ms 1 both;
+}
+@keyframes hero-charge {
+  from { transform: translateX(-120%); }
+  to { transform: translateX(320%); }
 }
 .hero-call__text { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2; }
 .hero-call__label { font-size: 13px; font-weight: 700; opacity: 0.92; }
 .hero-call__num { font-size: 20px; font-weight: 800; letter-spacing: 0.01em; unicode-bidi: isolate; direction: ltr; font-family: var(--display); }
 .hero-wa {
   min-height: 48px; padding: 10px 20px; font-size: 15px;
-  background: #fff; color: var(--green); border: 2px solid rgba(22,163,74,0.35);
+  background: var(--surface); color: var(--green); border: 2px solid var(--green);
 }
 .hero-micro { margin: 0 0 20px; font-size: 14px; font-weight: 600; color: var(--muted); line-height: 1.6; }
 
@@ -56,12 +68,32 @@
 .hero-proof__stars { color: #f5a524; letter-spacing: 1px; }
 .hero-quote {
   margin: 0; padding: 14px 16px;
-  background: var(--surface); border-radius: 14px; box-shadow: var(--shadow-xs);
+  background: var(--surface); box-shadow: var(--shadow-xs);
   border-inline-start: 4px solid var(--teal);
 }
 .hero-quote blockquote { margin: 0 0 8px; font-size: 15px; line-height: 1.7; color: var(--ink-2); font-weight: 500; }
 .hero-quote figcaption { font-size: 13.5px; font-weight: 800; color: var(--ink); }
 
+/* Decorative layers follow the theme */
+.hero-grid-lines {
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  opacity: 0.35;
+}
+.hero-illus-card { background: linear-gradient(160deg, var(--surface) 0%, var(--tint-2) 100%); }
+.hero-illus-card::before { content: none; }
+/* Looping float is replaced by a calm static position (ambient motion is for status dots only) */
+.hero-float-rating, .hero-float-fast { animation: none; }
+.hero-float-fast { background: var(--slate); }
+.hero-svg-bg { fill: var(--teal-soft); }
+.hero-svg-body { fill: var(--surface); stroke: var(--teal); }
+.hero-svg-brand { fill: var(--teal); }
+.hero-svg-coral { fill: var(--orange); }
+.hero-svg-louvre { stroke: var(--teal-border); }
+.hero-svg-air { stroke: var(--teal-2); }
+
+/* Stat strip entrance is the shared reveal (data-stagger); text is final from first paint */
 .hero-stats { margin-top: 4px; }
 
 @media (min-width: 560px) {
@@ -85,4 +117,5 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-copy > * { animation: none; opacity: 1; transform: none; }
   .hero-eyebrow-wrap[data-state="open"] .hero-eyebrow-dot { animation: none; }
+  .hero-call::after { animation: none; display: none; }
 }

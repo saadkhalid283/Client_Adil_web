@@ -24,17 +24,20 @@ export function WhySection({ L, isAr }: SiteProps) {
             gap: "20px",
           }}
           data-grid="why"
+          data-stagger
         >
-          {items.map((item, i) => {
+          {items.map((item) => {
             const Icon = item.icon;
             return (
-              <div key={i} className="why-card" data-reveal>
-                <div className="why-icon-wrap">
-                  <Icon size={26} color="var(--teal-2)" />
+              <div key={item.label} className="why-cell" data-reveal>
+                <div className="why-card lift">
+                  <div className="why-icon-wrap">
+                    <Icon size={26} color="var(--teal-2)" aria-hidden="true" />
+                  </div>
+                  <div className="why-stat">{item.stat}</div>
+                  <div className="why-label">{item.label}</div>
+                  <p className="why-desc">{item.desc}</p>
                 </div>
-                <div className="why-stat">{item.stat}</div>
-                <div className="why-label">{item.label}</div>
-                <p className="why-desc">{item.desc}</p>
               </div>
             );
           })}
