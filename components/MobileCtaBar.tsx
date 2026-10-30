@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Phone } from "lucide-react";
+import { RingingPhone } from "@/components/motion/RingingPhone";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import type { Translations } from "@/lib/types";
 import { wa, PHONE_PRIMARY } from "@/lib/constants";
@@ -54,7 +54,7 @@ export function MobileCtaBar({ L }: { L: Translations }) {
         {C.dockWa}
       </a>
       <a href={`tel:${PHONE_PRIMARY}`} className="dock__btn dock__call tap" onClick={(e) => { e.preventDefault(); window.trackPhoneConversion?.(e.currentTarget.href); }}>
-        <Phone size={20} aria-hidden="true" />
+        <RingingPhone size={20} />
         {C.dockCall}
       </a>
     </div>

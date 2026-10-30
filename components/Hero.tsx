@@ -1,7 +1,8 @@
 "use client";
 
 import type { CSSProperties } from "react";
-import { BadgeCheck, Phone, Zap } from "lucide-react";
+import { BadgeCheck, Zap } from "lucide-react";
+import { RingingPhone } from "@/components/motion/RingingPhone";
 import type { Translations } from "@/lib/types";
 import { wa, PHONE_PRIMARY, RATING } from "@/lib/constants";
 import { GoogleLogo } from "@/components/GoogleLogo";
@@ -72,7 +73,7 @@ export function Hero({ L }: { L: Translations }) {
 
             <div className="hero-actions">
               <a href={`tel:${PHONE_PRIMARY}`} data-call className="hero-call tap" onClick={(e) => { e.preventDefault(); window.trackPhoneConversion?.(e.currentTarget.href); }}>
-                <Phone size={24} aria-hidden="true" />
+                <RingingPhone size={24} />
                 <span className="hero-call__text">
                   <span className="hero-call__label">{C.callLabel}</span>
                   <span className="hero-call__num" dir="ltr">{PHONE_PRIMARY}</span>

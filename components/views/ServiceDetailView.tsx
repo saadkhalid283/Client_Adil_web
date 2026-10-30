@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { AlertCircle, Check, Phone } from "lucide-react";
+import { AlertCircle, Check } from "lucide-react";
+import { RingingPhone } from "@/components/motion/RingingPhone";
 import { PageHero } from "@/components/PageHero";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { CtaSection } from "@/components/CtaSection";
@@ -55,7 +56,7 @@ export function ServiceDetailView({ slug }: { slug: ServiceSlug }) {
               data-call
               onClick={(e) => { e.preventDefault(); window.trackPhoneConversion?.(e.currentTarget.href); }}
             >
-              <Phone size={20} aria-hidden="true" />
+              <RingingPhone size={20} />
               <span>{L.callBtn}</span>
               <span className="svcp-btn__num">{phoneLabel}</span>
             </a>

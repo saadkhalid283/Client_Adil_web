@@ -176,3 +176,45 @@
   .hero-call::before, .svcp-btn--call::before, .sh-call::before { transition: none; }
   .svc-card:hover::after, .svcp-card:hover::after:hover::after { opacity: 0; transition: none; }
 }
+
+/* ── 8. Ringing call button ───────────────────────────────────────────────
+   Purpose: the call button is the one action that earns the business; a real
+   ring cadence (about 1.25s of ringing, then a pause) draws the eye without
+   nagging. The handset shakes with decaying amplitude, three diamond sound-
+   waves radiate across the button, and the button gives a tiny vibration.
+   Uses the individual transform properties (rotate / scale / translate) so
+   it never fights the press feedback (.tap:active uses `transform`).
+   Rings only on buttons that are never on screen together (hero, phone dock,
+   service page). Off for reduced motion. */
+:root { --ring-cycle: 4.8s; --ring-delay: 2.2s; }
+.ringph { position: relative; display: inline-flex; flex: none; align-items: center; justify-content: center; color: #fff; }
+.ringph__icon { display: block; position: relative; z-index: 1; transform-origin: 50% 60%; }
+.ringph__wave { position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px; border: 2px solid currentColor; opacity: 0; rotate: 45deg; pointer-events: none; }
+
+.hero-call, .svcp-btn--call, .dock__call { position: relative; overflow: hidden; isolation: isolate; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-call, .svcp-btn--call, .dock__call { animation: ringph-vibe var(--ring-cycle) var(--ring-delay) infinite; }
+  .ringph__icon { animation: ringph-shake var(--ring-cycle) var(--ring-delay) infinite; }
+  .ringph__wave { animation: ringph-wave var(--ring-cycle) var(--ring-delay) infinite; }
+  .ringph__wave--2 { animation-delay: calc(var(--ring-delay) + 0.32s); }
+  .ringph__wave--3 { animation-delay: calc(var(--ring-delay) + 0.64s); }
+  /* Calm while the visitor is deciding: pause on hover / focus */
+  .hero-call:hover, .svcp-btn--call:hover, .dock__call:hover,
+  .hero-call:focus-visible, .svcp-btn--call:focus-visible, .dock__call:focus-visible,
+  .hero-call:hover .ringph__icon, .svcp-btn--call:hover .ringph__icon, .dock__call:hover .ringph__icon,
+  .hero-call:hover .ringph__wave, .svcp-btn--call:hover .ringph__wave, .dock__call:hover .ringph__wave { animation-play-state: paused; }
+}
+@keyframes ringph-shake {
+  0% { rotate: 0deg; } 2.6% { rotate: -18deg; } 5.2% { rotate: 18deg; } 7.8% { rotate: -16deg; } 10.4% { rotate: 16deg; }
+  13% { rotate: -12deg; } 15.6% { rotate: 12deg; } 18.2% { rotate: -8deg; } 20.8% { rotate: 8deg; } 23.4% { rotate: -4deg; }
+  26%, 100% { rotate: 0deg; }
+}
+@keyframes ringph-wave {
+  0% { opacity: 0; scale: 0.3; } 2% { opacity: 0.8; } 30%, 100% { opacity: 0; scale: 4.6; }
+}
+@keyframes ringph-vibe {
+  0% { translate: 0 0; } 2.6% { translate: -1.5px 0; } 5.2% { translate: 1.5px 0; } 7.8% { translate: -1.5px 0; }
+  10.4% { translate: 1.2px 0; } 13% { translate: -1px 0; } 15.6% { translate: 1px 0; } 18.2% { translate: -0.5px 0; }
+  20.8% { translate: 0.5px 0; } 23.4%, 100% { translate: 0 0; }
+}
