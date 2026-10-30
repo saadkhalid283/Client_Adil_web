@@ -6,7 +6,8 @@ import { SiteShell } from "@/components/shell/SiteShell";
 import "./globals.css";
 
 const GOOGLE_TAG_ID = "AW-18206895895";
-const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID || "";
+// Google Analytics 4 property "Adel Cooling Website" (analytics only: never a bidding conversion).
+const GA4_ID = "G-WBWJQN41MG";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://adelcooling.com";
@@ -232,8 +233,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', '${GOOGLE_TAG_ID}');
             ${GA4_ID ? `gtag('config', '${GA4_ID}');` : ""}
 
+            // Analytics-only lead events (send_to the GA4 stream, never to Google Ads),
+            // so Analytics reports leads without ever acting as a bidding conversion.
+            function gaLead(method) {
+              var ga = '${GA4_ID}';
+              if (!ga) return;
+              gtag('event', 'generate_lead', {
+                'send_to': ga,
+                'method': method,
+                'lead_source': window.location.pathname
+              });
+            }
+
             window.trackPhoneConversion = function(url) {
               var callback = function() { if (url) window.location.href = url; };
+              gaLead('phone_call');
               gtag('event', 'conversion', {
                 'send_to': 'AW-18206895895/7m-PCO7ZisYcEJfe3OlD',
                 'event_callback': callback
@@ -243,6 +257,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
             window.trackWhatsappConversion = function(url) {
               var callback = function() { if (url) window.location.href = url; };
+              gaLead('whatsapp');
               gtag('event', 'conversion', {
                 'send_to': 'AW-18206895895/vK8_COvZisYcEJfe3OlD',
                 'event_callback': callback
