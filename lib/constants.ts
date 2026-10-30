@@ -5,12 +5,9 @@ export const PHONE_PRIMARY = "+966598440397";
 export const MAP_LAT = "21.68932718013044";
 export const MAP_LNG = "39.112510675275004";
 
-// Official Google Maps embed endpoint — reliably framable. The camera is
-// centered exactly on the client's coordinates, and ContactSection overlays a
-// pin at the map's center to mark the location (the legacy ?output=embed marker
-// endpoint is blocked by X-Frame-Options, so we mark the spot ourselves).
-export const MAP_SRC =
-  "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3707.344889917054!2d39.112510675275004!3d21.68932718013044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDQxJzIxLjYiTiAzOcKwMDYnNTQuMyJF!5e0!3m2!1sen!2s!4v1781270961603!5m2!1sen!2s";
+// Google Maps embed driven directly by the coordinates above, so the map and
+// its pin always land on the exact location (no hand-built pb= payload).
+export const MAP_SRC = `https://www.google.com/maps?q=${MAP_LAT},${MAP_LNG}&z=16&hl=en&output=embed`;
 
 // Link that opens Google Maps with the pin + directions available
 export const MAP_LINK = `https://www.google.com/maps/search/?api=1&query=${MAP_LAT},${MAP_LNG}`;
