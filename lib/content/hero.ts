@@ -12,8 +12,8 @@ export interface HeroContent {
 
 export const heroContent: { ar: HeroContent; en: HeroContent } = {
   ar: {
-    open: "مفتوح الآن",
-    closed: "مغلق الآن · نفتح 8:00 صباحاً",
+    open: "متاح الآن · طوارئ 24/7",
+    closed: "متاح الآن · طوارئ 24/7",
     callLabel: "اتصل الآن",
     waLabel: "راسلنا على واتساب",
     microcopy: "اضغط للاتصال، ونحن نعتني براحتك.",
@@ -23,8 +23,8 @@ export const heroContent: { ar: HeroContent; en: HeroContent } = {
     dockCall: "اتصل الآن",
   },
   en: {
-    open: "Open now",
-    closed: "Closed now · opens at 8:00 am",
+    open: "Available now · 24/7 emergency",
+    closed: "Available now · 24/7 emergency",
     callLabel: "Call now",
     waLabel: "Message on WhatsApp",
     microcopy: "Tap to call and we will take care of your comfort.",

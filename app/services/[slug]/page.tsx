@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { JsonLd, breadcrumbLd } from "@/components/JsonLd";
 import { ServiceDetailView } from "@/components/views/ServiceDetailView";
+import { AcCleaningView } from "@/components/views/AcCleaningView";
 import { SERVICE_SLUGS, getService } from "@/lib/services-registry";
 import type { ServiceSlug } from "@/lib/services-registry";
 import { serviceContent } from "@/lib/content/services";
@@ -72,7 +73,7 @@ export default async function ServicePage({ params }: { params: Params }) {
       />
       <JsonLd data={serviceLd} />
       <JsonLd data={faqLd} />
-      <ServiceDetailView slug={slug} />
+      {slug === "ac-cleaning" ? <AcCleaningView /> : <ServiceDetailView slug={slug} />}
     </>
   );
 }

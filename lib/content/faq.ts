@@ -28,7 +28,7 @@ export const faqContent: Record<Lang, FaqCopy> = {
       },
       {
         q: "هل تعملون في المساء وفي عطلة نهاية الأسبوع؟",
-        a: "نعم، نعمل كل يوم من 8 صباحاً حتى منتصف الليل، سبعة أيام في الأسبوع دون إجازات.",
+        a: "نعم، نعمل كل يوم دون إجازات، وخدمة الطوارئ متاحة على مدار الساعة 24/7.",
       },
       {
         q: "ما المناطق التي تخدمونها؟",
@@ -65,7 +65,7 @@ export const faqContent: Record<Lang, FaqCopy> = {
       },
       {
         q: "Do you work evenings and weekends?",
-        a: "Yes. We work every day from 8 am to midnight, seven days a week with no days off.",
+        a: "Yes. We work every day with no days off, and emergency service is available around the clock, 24/7.",
       },
       {
         q: "Which areas do you cover?",

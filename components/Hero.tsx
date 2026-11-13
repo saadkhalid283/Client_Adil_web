@@ -28,7 +28,7 @@ export function Hero({ L }: { L: Translations }) {
 
   const stats = [
     { num: isAr ? "بضمان" : "Guaranteed", suffix: "", label: isAr ? "على كل إصلاح" : "On every repair" },
-    { num: "7/7", suffix: "", label: isAr ? "متاح كل أيام الأسبوع" : "Available every day" },
+    { num: "24/7", suffix: "", label: isAr ? "خدمة طوارئ على مدار الساعة" : "Emergency service, day and night" },
     { num: isAr ? "نفس" : "Same", suffix: isAr ? " اليوم" : "-day", label: isAr ? "خدمة سريعة" : "Fast service" },
   ];
 

@@ -13,8 +13,8 @@ export const pageCopy = {
     eyebrowEn: "Contact",
     titleAr: "تواصل مع عادل في جدة",
     titleEn: "Contact Adel in Jeddah",
-    subAr: "اتصل أو راسلنا على واتساب. نخدم جميع أنحاء جدة يومياً من 8 صباحاً حتى منتصف الليل.",
-    subEn: "Call or message us on WhatsApp. We cover all of Jeddah, daily from 8 am to midnight.",
+    subAr: "اتصل أو راسلنا على واتساب. نخدم جميع أنحاء جدة، وخدمة الطوارئ متاحة على مدار الساعة 24/7.",
+    subEn: "Call or message us on WhatsApp. We cover all of Jeddah, with 24/7 emergency service.",
   },
   about: {
     eyebrowAr: "من نحن",

@@ -50,8 +50,8 @@ const faqPhotos: ServiceFaq = {
 const faqArea: ServiceFaq = {
   q: { ar: "هل تخدمون جميع أنحاء جدة؟", en: "Do you cover all of Jeddah?" },
   a: {
-    ar: "نعم، نخدم جميع أنحاء جدة، يومياً من 8 صباحاً حتى منتصف الليل.",
-    en: "Yes, we serve all of Jeddah, every day from 8 am to midnight.",
+    ar: "نعم، نخدم جميع أنحاء جدة، وخدمة الطوارئ متاحة على مدار الساعة 24/7.",
+    en: "Yes, we serve all of Jeddah, with 24/7 emergency service.",
   },
 };
 
@@ -170,6 +170,14 @@ export const serviceContent: Record<ServiceSlug, ServiceDetail> = {
         },
       },
       faqPrice,
+      {
+        q: { ar: "ماذا لو ظهر عطل أثناء التنظيف؟", en: "What if you find a fault while cleaning?" },
+        a: {
+          ar: "نخبرك بما وجدناه ونتفق معك على الإصلاح والسعر قبل أي عمل، ولا نبدأ الإصلاح إلا بموافقتك. وعلى الإصلاح ضمان.",
+          en: "We tell you what we found and agree the repair and its price with you before any work. We only start the repair once you say yes, and repairs carry a guarantee.",
+        },
+      },
+      faqPhotos,
       faqArea,
     ],
     waMessageAr: "السلام عليكم، أحتاج تنظيف مكيف في جدة.",

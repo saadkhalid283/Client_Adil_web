@@ -7,7 +7,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://adelcooling.com";
 export const metadata: Metadata = {
   title: "Contact Adel in Jeddah",
   description:
-    "اتصل بعادل أو راسله على واتساب لحجز إصلاح مكيف أو ثلاجة أو غسالة في جدة. نعمل يومياً من 8 صباحاً حتى منتصف الليل، طوال أيام الأسبوع.",
+    "اتصل بعادل أو راسله على واتساب لحجز إصلاح مكيف أو ثلاجة أو غسالة في جدة. نعمل طوال أيام الأسبوع، وخدمة الطوارئ متاحة على مدار الساعة 24/7.",
   alternates: { canonical: "/contact" },
   openGraph: { url: "/contact" },
 };

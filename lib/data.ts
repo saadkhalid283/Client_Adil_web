@@ -98,12 +98,12 @@ export const whyData = (L: Lang) => [
   },
   {
     icon: Clock,
-    stat: L === "ar" ? "7/7" : "7/7",
-    label: L === "ar" ? "نعمل كل يوم" : "Open every day",
+    stat: "24/7",
+    label: L === "ar" ? "خدمة طوارئ 24/7" : "24/7 emergency service",
     desc:
       L === "ar"
-        ? "نعمل طوال أيام الأسبوع دون إجازة، من 8 صباحاً حتى منتصف الليل."
-        : "We work every day of the week with no days off, from 8 am to midnight.",
+        ? "نعمل طوال أيام الأسبوع دون إجازة، وخدمة الطوارئ متاحة على مدار الساعة."
+        : "We work every day of the week with no days off, and emergency service is available around the clock.",
   },
 ];
 
