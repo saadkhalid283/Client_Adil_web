@@ -134,6 +134,48 @@ export const serviceContent: Record<ServiceSlug, ServiceDetail> = {
     waMessageEn: "Hello, I need a split AC repaired in Jeddah.",
     metaDescriptionAr: "إصلاح مكيفات السبليت في جدة: ضعف التبريد وتسرّب الماء والضجيج وتعبئة الفريون. نتفق على السعر قبل العمل، وعلى كل إصلاح ضمان. اتصل أو راسلنا.",
   },
+  "ac-cleaning": {
+    heroSubAr: "تنظيف المكيفات في منزلك بجدة، بسعر يُتفق عليه قبل بدء العمل.",
+    heroSubEn: "AC cleaning at your home in Jeddah, at a price agreed before work starts.",
+    introAr: [
+      "الغبار المتراكم في المكيف قد يضعف التبريد ويسبب رائحة غير مستحبة أو تسرّب ماء.",
+      "نحضر إلى منزلك وننظف المكيف بترتيب، ونتفق معك على السعر قبل أن نبدأ.",
+    ],
+    introEn: [
+      "Dust built up inside an AC can weaken cooling and cause an unpleasant smell or water leaks.",
+      "We come to your home, clean the unit neatly and agree the price with you before we start.",
+    ],
+    problems: [
+      { ar: "ضعف التبريد بسبب الغبار", en: "Weak cooling caused by dust" },
+      { ar: "رائحة غير مستحبة عند تشغيل المكيف", en: "An unpleasant smell when the AC runs" },
+      { ar: "تسرّب ماء من المكيف", en: "Water leaking from the AC" },
+      { ar: "غبار متراكم على الفلاتر", en: "Dust built up on the filters" },
+      { ar: "مكيف لم يُنظف منذ فترة طويلة", en: "An AC that has not been cleaned for a long time" },
+      { ar: "تجهيز المكيف قبل موسم الصيف", en: "Getting the AC ready before summer" },
+    ],
+    included: [
+      included[0],
+      included[3],
+      {
+        ar: "إن ظهر عطل أثناء التنظيف نخبرك به ونتفق على الإصلاح قبل أي عمل",
+        en: "If we find a fault while cleaning, we tell you and agree the repair before any work",
+      },
+    ],
+    faqs: [
+      {
+        q: { ar: "هل تنظفون المكيفات في المنزل؟", en: "Do you clean ACs at the home?" },
+        a: {
+          ar: "نعم، تنظيف المكيفات من خدماتنا في جدة. أخبرنا بنوع المكيف وعدد الوحدات على واتساب لنؤكد لك.",
+          en: "Yes, AC cleaning is one of our services in Jeddah. Tell us the type of AC and how many units on WhatsApp and we will confirm.",
+        },
+      },
+      faqPrice,
+      faqArea,
+    ],
+    waMessageAr: "السلام عليكم، أحتاج تنظيف مكيف في جدة.",
+    waMessageEn: "Hello, I need an AC cleaned in Jeddah.",
+    metaDescriptionAr: "تنظيف المكيفات في جدة: غبار متراكم، رائحة، ضعف التبريد وتسرّب ماء. نتفق على السعر قبل العمل. اتصل أو راسلنا على واتساب.",
+  },
   "central-ac": {
     heroSubAr: "صيانة وإصلاح أنظمة التكييف المركزي في جدة.",
     heroSubEn: "Maintenance and repair of central AC systems in Jeddah.",

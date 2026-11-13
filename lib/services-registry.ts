@@ -2,6 +2,7 @@
 export const SERVICE_SLUGS = [
   "window-ac-repair",
   "split-ac-repair",
+  "ac-cleaning",
   "central-ac",
   "washing-machine-repair",
   "refrigerator-repair",
@@ -35,6 +36,14 @@ export const SERVICES: ServiceMeta[] = [
     dAr: "تشخيص وإصلاح أعطال السبليت وتعبئة الفريون",
     dEn: "Diagnosis, split AC repair and refrigerant refill",
     color: "#6366f1",
+  },
+  {
+    slug: "ac-cleaning",
+    ar: "تنظيف المكيفات",
+    en: "AC Cleaning",
+    dAr: "تنظيف المكيفات في المنزل بسعر متفق عليه قبل العمل",
+    dEn: "Home AC cleaning at a price agreed before work",
+    color: "#06b6d4",
   },
   {
     slug: "central-ac",

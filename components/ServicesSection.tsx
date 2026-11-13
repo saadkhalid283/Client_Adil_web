@@ -2,7 +2,7 @@
 
 import type { CSSProperties } from "react";
 import Link from "next/link";
-import { AirVent, Fan, Refrigerator, Snowflake, WashingMachine, Wrench } from "lucide-react";
+import { AirVent, Fan, Refrigerator, Snowflake, Sparkles, WashingMachine, Wrench } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { SiteProps } from "@/lib/site-props";
 import { SERVICES } from "@/lib/services-registry";
@@ -11,6 +11,7 @@ import type { ServiceSlug } from "@/lib/services-registry";
 const ICONS: Record<ServiceSlug, LucideIcon> = {
   "window-ac-repair": AirVent,
   "split-ac-repair": Snowflake,
+  "ac-cleaning": Sparkles,
   "central-ac": Fan,
   "washing-machine-repair": WashingMachine,
   "refrigerator-repair": Refrigerator,

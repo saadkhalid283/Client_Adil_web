@@ -35,6 +35,7 @@ export const KIND_ORDER: SearchKind[] = ["service", "page", "faq"];
 const SERVICE_KEYWORDS: Record<ServiceSlug, string> = {
   "window-ac-repair": "مكيف تكييف شباك مكيف شباك تبريد ac air conditioner window unit cooling",
   "split-ac-repair": "مكيف تكييف سبليت فريون تعبئة غاز تسريب ac air conditioner split refrigerant gas leak",
+  "ac-cleaning": "تنظيف غسيل مكيف مكيفات سبليت شباك غبار رائحة ac air conditioner cleaning wash dust smell",
   "central-ac": "مكيف تكييف مركزي مواسير دكت ac air conditioner central duct hvac",
   "washing-machine-repair": "غسالة غسالات اوتوماتيك بوردة لوحة washer washing machine laundry board",
   "refrigerator-repair": "ثلاجة ثلاجات فريزر كمبروسر تسريب تبريد fridge refrigerator freezer compressor leak cooling",
