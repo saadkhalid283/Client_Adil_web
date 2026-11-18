@@ -18,6 +18,19 @@ import { SnowDrift } from "@/components/motion/SnowDrift";
 import { SkylineDraw } from "@/components/motion/SkylineDraw";
 import { HeroArt } from "@/components/HeroArt";
 
+const HERO_KEYWORDS = {
+  ar: ["المكيفات", "الثلاجات", "الغسالات"],
+  en: ["ACs", "fridges", "washing machines"],
+};
+
+/** Wraps the appliance words in <strong> so they stand out in the intro line. */
+function emphasize(text: string, words: string[]) {
+  const re = new RegExp(`(${words.join("|")})`, "g");
+  return text.split(re).map((part, i) =>
+    words.includes(part) ? <strong key={i} className="hero-sub__kw">{part}</strong> : part,
+  );
+}
+
 export function Hero({ L }: { L: Translations }) {
   const isAr = L.dir === "rtl";
   const C = isAr ? heroContent.ar : heroContent.en;
@@ -53,14 +66,14 @@ export function Hero({ L }: { L: Translations }) {
           {/* Text content */}
           <div className="hero-copy">
             <div className="hero-eyebrow-row">
+              <span className="verified-badge">
+                <BadgeCheck size={14} />
+                {L.verifiedBadge}
+              </span>
               <div className="hero-eyebrow-wrap" data-state={statusState}>
                 <span className="hero-eyebrow-dot" aria-hidden="true" />
                 <span className="hero-eyebrow-text" role="status">{statusText}</span>
               </div>
-              <span className="verified-badge">
-                <BadgeCheck size={15} />
-                {L.verifiedBadge}
-              </span>
             </div>
 
             <h1 className="hero-h1">
@@ -70,9 +83,7 @@ export function Hero({ L }: { L: Translations }) {
               <span className="hero-h1-guarantee"><Words text={L.heroTitle3} trigger="load" /></span>
             </h1>
 
-            <p className="hero-sub">{L.heroSub}</p>
-
-            <HeroArt variant="m" />
+            <p className="hero-sub">{emphasize(L.heroSub, isAr ? HERO_KEYWORDS.ar : HERO_KEYWORDS.en)}</p>
 
             <div className="hero-actions">
               <a href={`tel:${PHONE_PRIMARY}`} data-call className="hero-call tap" onClick={(e) => { e.preventDefault(); window.trackPhoneConversion?.(e.currentTarget.href); }}>
@@ -98,6 +109,7 @@ export function Hero({ L }: { L: Translations }) {
                 </span>
                 <span>· 18 {C.ratingLine}</span>
               </div>
+              <HeroArt variant="m" />
               <figure className="hero-quote">
                 <blockquote>{isAr ? review.ar : review.en}</blockquote>
                 <figcaption>{review.name}</figcaption>

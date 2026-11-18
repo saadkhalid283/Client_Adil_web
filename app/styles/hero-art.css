@@ -13,7 +13,7 @@
 .hero-art__fridge { animation-delay: 260ms; }
 
 /* Mobile hero: the washing machine alone, centred, sized by height so it never gets tall */
-.hero-art--m { max-width: 380px; height: 196px; margin: 4px auto 14px; }
+.hero-art--m { max-width: 380px; height: 132px; margin: 6px auto 14px; }
 .hero-art--m .hero-art__washer { height: 100%; width: auto; top: 0; inset-inline: 0; margin-inline: auto; z-index: 1; }
 
 /* Desktop still life lives in the second hero column: washer biggest, in front */
