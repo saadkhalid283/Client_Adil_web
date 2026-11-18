@@ -8,11 +8,11 @@ import { ART } from "@/components/HeroArt";
 import type { ArtKind } from "@/components/HeroArt";
 
 const ROWS: { slug: ServiceSlug; art: ArtKind }[] = [
-  { slug: "washing-machine-repair", art: "washer" },
+  { slug: "split-ac-repair", art: "ac" },
   { slug: "refrigerator-repair", art: "fridge" },
 ];
 
-/** Phone-only zigzag under the hero: washer on one side, fridge on the other, each opens its service page. */
+/** Phone-only zigzag under the hero: AC on one side, fridge on the other, each opens its service page. */
 export function ApplianceDuo() {
   const { isAr } = useSite();
   const kicker = isAr ? "ولا نتوقف عند المكيفات" : "We fix more than ACs";
@@ -36,7 +36,7 @@ export function ApplianceDuo() {
             </div>
           );
           return (
-            <Link key={r.slug} href={`/services/${r.slug}`} className={`duo__row tap ${i % 2 ? "duo__row--flip" : ""}`} data-reveal>
+            <Link key={r.slug} href={`/services/${r.slug}`} className={`duo__row tap ${i % 2 ? "duo__row--flip" : ""} ${r.art === "ac" ? "duo__row--wide" : ""}`} data-reveal>
               {i % 2 ? <>{text}{img}</> : <>{img}{text}</>}
             </Link>
           );

@@ -12,15 +12,15 @@
 .hero-art__washer { animation-delay: 140ms; }
 .hero-art__fridge { animation-delay: 260ms; }
 
-/* Mobile hero: the AC alone, big and calm */
-.hero-art--m { max-width: 380px; aspect-ratio: 1.95 / 1; margin: 2px auto 16px; }
-.hero-art--m .hero-art__ac { width: 100%; top: 0; inset-inline-start: 0; z-index: 1; }
+/* Mobile hero: the washing machine alone, centred, sized by height so it never gets tall */
+.hero-art--m { max-width: 380px; height: 196px; margin: 4px auto 14px; }
+.hero-art--m .hero-art__washer { height: 100%; width: auto; top: 0; inset-inline: 0; margin-inline: auto; z-index: 1; }
 
-/* Desktop still life lives in the second hero column */
-.hero-art--d { aspect-ratio: 1 / 0.93; max-width: 540px; }
-.hero-art--d .hero-art__ac { width: 100%; top: 0; inset-inline-start: 0; z-index: 1; }
-.hero-art--d .hero-art__washer { width: 50%; bottom: 0; inset-inline-start: -2%; z-index: 2; }
-.hero-art--d .hero-art__fridge { width: 52%; bottom: -1%; inset-inline-end: -2%; z-index: 3; }
+/* Desktop still life lives in the second hero column: washer biggest, in front */
+.hero-art--d { aspect-ratio: 1 / 0.95; max-width: 540px; }
+.hero-art--d .hero-art__ac { width: 82%; top: 0; inset-inline-end: -2%; z-index: 1; }
+.hero-art--d .hero-art__washer { width: 58%; bottom: 0; inset-inline-start: -2%; z-index: 3; }
+.hero-art--d .hero-art__fridge { width: 46%; bottom: 0; inset-inline-end: -2%; z-index: 2; }
 
 .hero-illus--art { padding: 0; }
 .hero-illus--art .hero-float-rating { top: 2%; inset-inline-end: 0; z-index: 5; }
@@ -60,6 +60,9 @@
 .duo__img { display: block; width: 118%; max-width: none; height: auto; margin-block: -22px -14px; position: relative; z-index: 1; pointer-events: none; }
 .duo__row:not(.duo__row--flip) .duo__img { margin-inline-start: -10%; }
 .duo__row--flip .duo__img { margin-inline-start: -8%; }
+.duo__row--wide { grid-template-columns: 52% 1fr; }
+.duo__row--wide.duo__row--flip { grid-template-columns: 1fr 52%; }
+.duo__row--wide .duo__img { width: 112%; margin-block: -6px -6px; }
 .duo__text { display: flex; flex-direction: column; gap: 6px; padding-block: 6px; }
 .duo__title { margin: 0; font-family: var(--display); font-size: 17.5px; font-weight: 800; line-height: 1.25; color: var(--ink); }
 .duo__desc { margin: 0; font-size: 13.5px; line-height: 1.6; color: var(--muted); font-weight: 500; }

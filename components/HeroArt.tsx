@@ -7,17 +7,22 @@ export const ART: Record<ArtKind, { src: string; width: number; height: number }
   fridge: { src: "/images/hero/fridge.webp", width: 900, height: 822 },
 };
 
-/** Desktop: three appliances layered like a small still life. Mobile: the AC alone (washer and fridge get their own section). */
+/** Desktop: three appliances layered like a small still life, washer in front. Mobile: the washer alone (AC and fridge get their own section). */
 export function HeroArt({ variant }: { variant: "d" | "m" }) {
+  const img = (k: ArtKind) => (
+    <img className={`hero-art__img hero-art__${k}`} src={ART[k].src} width={ART[k].width} height={ART[k].height} alt="" decoding="async" fetchPriority={k === "washer" ? "high" : undefined} />
+  );
   return (
     <div className={`hero-art hero-art--${variant}`} aria-hidden="true">
-      <img className="hero-art__img hero-art__ac" src={ART.ac.src} width={ART.ac.width} height={ART.ac.height} alt="" fetchPriority="high" decoding="async" />
       {variant === "d" ? (
         <>
-          <img className="hero-art__img hero-art__washer" src={ART.washer.src} width={ART.washer.width} height={ART.washer.height} alt="" decoding="async" />
-          <img className="hero-art__img hero-art__fridge" src={ART.fridge.src} width={ART.fridge.width} height={ART.fridge.height} alt="" decoding="async" />
+          {img("ac")}
+          {img("washer")}
+          {img("fridge")}
         </>
-      ) : null}
+      ) : (
+        img("washer")
+      )}
     </div>
   );
 }
