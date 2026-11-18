@@ -2,21 +2,8 @@
 
 import type { CSSProperties } from "react";
 import Link from "next/link";
-import { AirVent, Fan, Refrigerator, Snowflake, Sparkles, WashingMachine, Wrench } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 import type { SiteProps } from "@/lib/site-props";
 import { SERVICES } from "@/lib/services-registry";
-import type { ServiceSlug } from "@/lib/services-registry";
-
-const ICONS: Record<ServiceSlug, LucideIcon> = {
-  "window-ac-repair": AirVent,
-  "split-ac-repair": Snowflake,
-  "ac-cleaning": Sparkles,
-  "central-ac": Fan,
-  "washing-machine-repair": WashingMachine,
-  "refrigerator-repair": Refrigerator,
-  "appliance-pipe-installation": Wrench,
-};
 
 export function ServicesSection({ L, isAr }: SiteProps) {
   const viewLabel = isAr ? "عرض الخدمة" : "View service";
@@ -34,25 +21,23 @@ export function ServicesSection({ L, isAr }: SiteProps) {
 
         <div className="svc-grid" data-stagger>
           {SERVICES.map((svc) => {
-            const Icon = ICONS[svc.slug];
             return (
               <div key={svc.slug} className="svc-cell" data-reveal>
                 <Link
                   href={`/services/${svc.slug}`}
-                  className="svc-card svc-card--link lift tap"
+                  className="svc-card svc-card--link svc-card--media lift tap"
                   style={{ "--svc-accent": svc.color } as CSSProperties}
                 >
-                  <span
-                    className="svc-icon-wrap"
-                    style={{ background: `${svc.color}18`, border: `1.5px solid ${svc.color}30` }}
-                  >
-                    <Icon size={24} color={svc.color} aria-hidden="true" />
+                  <span className="svc-media" aria-hidden="true">
+                    <img src={`/images/services/${svc.slug}.webp`} width={480} height={480} alt="" loading="lazy" decoding="async" />
                   </span>
-                  <h3 className="svc-title">{isAr ? svc.ar : svc.en}</h3>
-                  <p className="svc-desc">{isAr ? svc.dAr : svc.dEn}</p>
-                  <span className="svc-cta">
-                    {viewLabel}
-                    <span className="svc-cta__arrow" aria-hidden="true">{arrow}</span>
+                  <span className="svc-body">
+                    <h3 className="svc-title">{isAr ? svc.ar : svc.en}</h3>
+                    <p className="svc-desc">{isAr ? svc.dAr : svc.dEn}</p>
+                    <span className="svc-cta">
+                      {viewLabel}
+                      <span className="svc-cta__arrow" aria-hidden="true">{arrow}</span>
+                    </span>
                   </span>
                 </Link>
               </div>

@@ -1,0 +1,36 @@
+/* Service cards with a picture: image fills one side edge to edge, text on the other.
+   Used by the home services grid (.svc-card--media) and the /services list (.svcp-card--media). */
+
+.svc-card--media, .svcp-card--media {
+  flex-direction: row; align-items: stretch; gap: 0; padding: 0; overflow: hidden; min-height: 124px;
+}
+.svc-media {
+  position: relative; flex: 0 0 35%; min-width: 112px; max-width: 150px; background: #fff;
+}
+/* the picture is shown whole (never cropped), centred on a white panel, so it reads as relaxed and natural */
+.svc-media img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center; display: block;
+}
+.svc-body {
+  flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 4px; padding: 12px 14px;
+}
+
+/* tighter type and tap area inside the compact card (the whole card is the link) */
+.svc-card--media .svc-title, .svcp-card--media .svcp-card__name { font-size: 16px; line-height: 1.3; }
+.svc-card--media .svc-desc, .svcp-card--media .svcp-card__desc { font-size: 13.5px; line-height: 1.55; flex: 0 1 auto; }
+.svc-card--media .svc-cta, .svcp-card--media .svcp-card__more { min-height: 28px; margin-top: 2px; }
+.svc-card--link.svc-card--media { padding: 0; }
+
+/* thin accent along the media edge keeps the per-service colour without extra chrome */
+.svc-card--media::before { display: none; }
+.svc-card--media .svc-media::after, .svcp-card--media .svc-media::after {
+  content: ""; position: absolute; inset-block: 0; inset-inline-end: 0; width: 3px; background: var(--svc-accent, var(--teal));
+}
+
+@media (min-width: 640px) {
+  .svc-media { flex-basis: 38%; max-width: 168px; }
+  .svc-body { padding: 14px 18px; }
+}
+@media (min-width: 960px) {
+  .svc-card--link.svc-card--media { padding: 0; }
+}

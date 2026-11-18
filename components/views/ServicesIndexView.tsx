@@ -52,16 +52,19 @@ export function ServicesIndexView() {
         <div className="svcp-inner">
           <ul className="svcp-grid" data-stagger>
             {SERVICES.map((s) => {
-              const Icon = SERVICE_ICONS[s.slug];
               return (
                 <li key={s.slug} data-reveal>
-                  <Link href={`/services/${s.slug}`} className="svcp-card lift tap" style={accentStyle(s.color)}>
-                    <span className="svcp-icon"><Icon size={26} aria-hidden="true" /></span>
-                    <h2 className="svcp-card__name">{isAr ? s.ar : s.en}</h2>
-                    <p className="svcp-card__desc">{isAr ? s.dAr : s.dEn}</p>
-                    <span className="svcp-card__more">
-                      {isAr ? "عرض الخدمة" : "View service"}
-                      <span className="svcp-card__arrow" aria-hidden="true">{isAr ? "←" : "→"}</span>
+                  <Link href={`/services/${s.slug}`} className="svcp-card svcp-card--media lift tap" style={accentStyle(s.color)}>
+                    <span className="svc-media" aria-hidden="true">
+                      <img src={`/images/services/${s.slug}.webp`} width={480} height={480} alt="" loading="lazy" decoding="async" />
+                    </span>
+                    <span className="svc-body">
+                      <h2 className="svcp-card__name">{isAr ? s.ar : s.en}</h2>
+                      <p className="svcp-card__desc">{isAr ? s.dAr : s.dEn}</p>
+                      <span className="svcp-card__more">
+                        {isAr ? "عرض الخدمة" : "View service"}
+                        <span className="svcp-card__arrow" aria-hidden="true">{isAr ? "←" : "→"}</span>
+                      </span>
                     </span>
                   </Link>
                 </li>
