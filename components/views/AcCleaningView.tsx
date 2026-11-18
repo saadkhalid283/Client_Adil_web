@@ -6,6 +6,7 @@ import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { GoogleLogo } from "@/components/GoogleLogo";
 import { RatingStars } from "@/components/RatingStars";
 import { SendLocationButton } from "@/components/SendLocationButton";
+import { PageArt } from "@/components/HeroArt";
 import { useSite } from "@/lib/site-context";
 import { PHONE_PRIMARY, RATING, wa } from "@/lib/constants";
 import { serviceContent } from "@/lib/content/services";
@@ -259,6 +260,7 @@ export function AcCleaningView() {
             <path d="M10 250 C70 220 110 280 170 250 S260 220 310 250" />
           </svg>
         </div>
+        <div className="acx-hero__art"><PageArt kind="ac" /></div>
         <div className="acx-in">
           <nav aria-label={isAr ? "مسار التنقل" : "Breadcrumb"} className="crumbs">
             <ol>

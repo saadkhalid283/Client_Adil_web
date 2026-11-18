@@ -16,6 +16,7 @@ import { Words } from "@/components/motion/Words";
 import { TemperatureDial } from "@/components/motion/TemperatureDial";
 import { SnowDrift } from "@/components/motion/SnowDrift";
 import { SkylineDraw } from "@/components/motion/SkylineDraw";
+import { HeroArt } from "@/components/HeroArt";
 
 export function Hero({ L }: { L: Translations }) {
   const isAr = L.dir === "rtl";
@@ -71,6 +72,8 @@ export function Hero({ L }: { L: Translations }) {
 
             <p className="hero-sub">{L.heroSub}</p>
 
+            <HeroArt variant="m" />
+
             <div className="hero-actions">
               <a href={`tel:${PHONE_PRIMARY}`} data-call className="hero-call tap" onClick={(e) => { e.preventDefault(); window.trackPhoneConversion?.(e.currentTarget.href); }}>
                 <RingingPhone size={24} />
@@ -109,76 +112,14 @@ export function Hero({ L }: { L: Translations }) {
             </div>
           </div>
 
-          {/* Illustration */}
-          <div className="hero-illus fade-in" data-desktop>
+          {/* Product art */}
+          <div className="hero-illus hero-illus--art fade-in" data-desktop>
             <div className="hero-float-rating">
               <div className="hero-float-stars">★★★★★</div>
               <div className="hero-float-label">{L.heroRating}</div>
             </div>
 
-            <div className="hero-illus-card">
-              <div className="fx-ac">
-              <div className="fx-ac__art">
-              <svg
-                viewBox="0 0 360 280"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                style={{ width: "100%", maxWidth: "340px" }}
-                aria-hidden="true"
-              >
-                {/* Backdrop */}
-                <rect x="60" y="0" width="240" height="240" className="hero-svg-bg" />
-
-                {/* AC unit body */}
-                <rect x="44" y="48" width="272" height="100" className="hero-svg-body" strokeWidth="2.5" />
-
-                {/* Display panel */}
-                <rect x="62" y="66" width="88" height="50" className="hero-svg-brand" />
-
-                {/* Power light */}
-                <rect x="164" y="74" width="12" height="12" className="hero-svg-coral" />
-
-                {/* Vent louvres */}
-                {[104, 118, 132].map((y) => (
-                  <line key={y} x1="170" y1={y} x2="300" y2={y} className="hero-svg-louvre" strokeWidth="3" />
-                ))}
-
-                {/* Cold air streams */}
-                {[120, 160, 200, 240].map((x, i) => (
-                  <path
-                    key={x}
-                    d={`M ${x} 162 C ${x + 14} 178, ${x - 6} 194, ${x + 14} 210`}
-                    className="hero-svg-air"
-                    strokeWidth="2.5"
-                    fill="none"
-                    strokeDasharray="2,8"
-                    opacity={0.8 - i * 0.12}
-                  />
-                ))}
-
-                {/* Snowflakes */}
-                <g className="hero-svg-air" strokeWidth="2" opacity="0.75">
-                  <g transform="translate(150 196)">
-                    <line x1="-7" y1="0" x2="7" y2="0" /><line x1="0" y1="-7" x2="0" y2="7" />
-                    <line x1="-5" y1="-5" x2="5" y2="5" /><line x1="-5" y1="5" x2="5" y2="-5" />
-                  </g>
-                  <g transform="translate(214 220)">
-                    <line x1="-6" y1="0" x2="6" y2="0" /><line x1="0" y1="-6" x2="0" y2="6" />
-                    <line x1="-4" y1="-4" x2="4" y2="4" /><line x1="-4" y1="4" x2="4" y2="-4" />
-                  </g>
-                </g>
-
-                {/* Technician badge: wrench on a coral square */}
-                <rect x="250" y="170" width="72" height="72" className="hero-svg-coral" />
-                <g transform="translate(286 206) rotate(45)">
-                  <path d="M -3 -16 a 9 9 0 1 0 9 9 L 6 14 a 5 5 0 0 1 -10 0 L -4 -7 a 9 9 0 0 0 1 -9 Z" fill="#ffffff" />
-                </g>
-              </svg>
-              <TemperatureDial variant="panel" />
-              </div>
-              <p className="fx-ac__cap">{FX.dialCaption}</p>
-              </div>
-            </div>
+            <HeroArt variant="d" />
 
             <div className="hero-float-fast">
               <Zap size={16} color="var(--orange)" aria-hidden="true" />

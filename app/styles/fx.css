@@ -50,7 +50,7 @@
   display: flex; align-items: center; gap: 14px; margin-top: 14px;
   padding: 12px 14px; background: var(--surface); border: 1px solid var(--line);
 }
-.fx-dial--compact .fx-dial__num { flex: none; width: 4.1ch; font-size: 30px; color: var(--ink); }
+.fx-dial--compact .fx-dial__num { flex: none; width: 4.1ch; font-size: 26.5px; color: var(--ink); }
 .fx-dial--compact .fx-dial__side { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
 .fx-dial--compact .fx-dial__bar { height: 6px; }
 .fx-dial__cap { margin: 0; font-size: 13.5px; font-weight: 700; line-height: 1.5; color: var(--ink-2); }
@@ -63,7 +63,7 @@
 .fx-dial--panel .fx-dial__num {
   position: absolute; left: 17.22%; width: 24.44%; top: 23.57%; height: 14.5%;
   display: flex; align-items: center; justify-content: center;
-  font-size: 21px; color: #fff;
+  font-size: 19.5px; color: #fff;
 }
 .fx-dial--panel .fx-dial__side { display: contents; }
 .fx-dial--panel .fx-dial__bar {

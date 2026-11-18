@@ -18,7 +18,7 @@
 }
 .faq__summary::-webkit-details-marker { display: none; }
 .faq__summary:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
-.faq__q { font-size: 16px; font-weight: 700; line-height: 1.5; color: var(--ink); }
+.faq__q { font-size: 15px; font-weight: 700; line-height: 1.5; color: var(--ink); }
 
 .faq__icon { position: relative; flex-shrink: 0; width: 20px; height: 20px; color: var(--teal); }
 .faq__icon::before, .faq__icon::after {
@@ -30,7 +30,7 @@
 .faq__item[open] .faq__icon::after { transform: rotate(0deg); }
 
 .faq__panel { padding: 0 16px 16px; }
-.faq__a { margin: 0; font-size: 15px; line-height: 1.8; color: var(--ink-2); font-weight: 500; }
+.faq__a { margin: 0; font-size: 14px; line-height: 1.8; color: var(--ink-2); font-weight: 500; }
 .faq__item[open] .faq__panel { animation: faq-rise var(--dur-std) var(--ease-out) both; }
 @keyframes faq-rise {
   from { opacity: 0; transform: translateY(16px); }
@@ -41,11 +41,11 @@
   margin-top: 28px; padding: 24px 16px; text-align: center;
   background: var(--surface); border: 2px solid var(--line);
 }
-.faq__more-title { margin: 0 0 14px; font-family: var(--display); font-size: 18px; font-weight: 800; color: var(--ink); }
+.faq__more-title { margin: 0 0 14px; font-family: var(--display); font-size: 16.5px; font-weight: 800; color: var(--ink); }
 .faq__more-btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   width: 100%; min-height: 52px; padding: 12px 24px;
-  background: var(--green); color: #fff; font-size: 16px; font-weight: 800; text-decoration: none;
+  background: var(--green); color: #fff; font-size: 15px; font-weight: 800; text-decoration: none;
   box-shadow: var(--shadow-sm);
 }
 .faq__more-btn:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
@@ -53,7 +53,7 @@
 @media (min-width: 640px) {
   .section-wrap.faq { padding: 80px 20px; }
   .faq__summary { padding: 14px 22px; }
-  .faq__q { font-size: 17px; }
+  .faq__q { font-size: 15.5px; }
   .faq__panel { padding: 0 22px 20px; }
   .faq__more { padding: 28px 24px; }
   .faq__more-btn { width: auto; min-width: 280px; }
@@ -67,6 +67,6 @@
 .faq__all { margin-top: 20px; text-align: center; }
 .faq__all-link {
   display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
-  font-size: 16px; font-weight: 800; color: var(--teal); text-decoration: none;
+  font-size: 15px; font-weight: 800; color: var(--teal); text-decoration: none;
 }
 .faq__all-link:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }

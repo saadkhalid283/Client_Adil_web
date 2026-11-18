@@ -3,6 +3,7 @@
 import { useSiteProps } from "@/lib/site-context";
 import { Hero } from "@/components/Hero";
 import { ServicesSection } from "@/components/ServicesSection";
+import { ApplianceDuo } from "@/components/ApplianceDuo";
 import { BrandsSection } from "@/components/BrandsSection";
 import { WhySection } from "@/components/WhySection";
 import { HowItWorksSection } from "@/components/HowItWorksSection";
@@ -17,6 +18,7 @@ export function HomeView() {
   return (
     <>
       <Hero L={L} />
+      <ApplianceDuo />
       <ServicesSection {...siteProps} />
       <BrandsSection L={L} />
       <WhySection {...siteProps} photos />

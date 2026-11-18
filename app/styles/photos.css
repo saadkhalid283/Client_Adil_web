@@ -26,7 +26,7 @@
   .wp__arrow, .wp__link:hover .wp__arrow { transition: none; transform: none; }
 }
 
-@media (min-width: 640px) { .wp__cap { font-size: 15px; padding-inline: var(--sp-4); } }
+@media (min-width: 640px) { .wp__cap { font-size: 14px; padding-inline: var(--sp-4); } }
 @media (min-width: 880px) {
   .wp { grid-template-columns: repeat(4, 1fr); gap: var(--sp-6); padding-inline: 20px; margin-bottom: 72px; }
   .wp__item:nth-child(even) { margin-top: 44px; }

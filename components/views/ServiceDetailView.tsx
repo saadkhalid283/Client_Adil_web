@@ -12,6 +12,15 @@ import { SERVICES, getService } from "@/lib/services-registry";
 import type { ServiceSlug } from "@/lib/services-registry";
 import { serviceContent } from "@/lib/content/services";
 import { SERVICE_ICONS, accentStyle } from "./ServicesIndexView";
+import type { ArtKind } from "@/components/HeroArt";
+
+const SERVICE_ART: Partial<Record<ServiceSlug, ArtKind>> = {
+  "window-ac-repair": "ac",
+  "split-ac-repair": "ac",
+  "central-ac": "ac",
+  "washing-machine-repair": "washer",
+  "refrigerator-repair": "fridge",
+};
 
 export function ServiceDetailView({ slug }: { slug: ServiceSlug }) {
   const { L, isAr } = useSite();
@@ -34,6 +43,7 @@ export function ServiceDetailView({ slug }: { slug: ServiceSlug }) {
         titleEn={service.en}
         subAr={c.heroSubAr}
         subEn={c.heroSubEn}
+        art={SERVICE_ART[slug]}
         crumbs={[
           { ar: "الرئيسية", en: "Home", href: "/" },
           { ar: "خدماتنا", en: "Services", href: "/services" },
